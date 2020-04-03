@@ -1,0 +1,129 @@
+{
+	"title": "RP Server Rules",
+	"description": "BeeRP is a medium roleplay server with higher/more roleplay being greatly encouraged. \"Medium\" is loosely seen in our server as having an environment in which you can roleplay a character yet still have room for shenanigans and humor. In other words, you should consider your character to be a separate entity from you as a player. Your character's actions and feelings in-game should be based solely on your character's experiences and not your own as the player. It is also encouraged to use role play dialogue before making split decisions such as using lethal force against another character",
+	"rules": [
+		{
+			"title": "Use Common Sense",
+			"clauses": [
+				"If everybody followed this rule, none of the others would be necessary.",
+				"In the immortal words of Bill and Ted, \"Be excellent to each other.\"",
+				"If you suspect something might lead to you being banned, it probably is bannable. The rules cannot cover all possible cases, and the roleplay server is much stricter than the main server.",
+				"If you are not sure whether something would be considered against the rules, use adminhelp.",
+				"If you were given permission by admins to do something once, that does not necessarily mean you can do it again."
+			]
+		},
+		{
+			"title": "Be Excellent to Each Other",
+			"clauses": [
+				"Be patient with players and try to assist them, especially new ones.",
+				"Don't harass players or staff in OOC or outside the game. You have some wiggle room in character (IC), but expect IC consequences.",
+				"ERP is not tolerated, you will be permabanned. We may or may not share the logs so others can laugh at you. Go to a containment server if you want to ERP.",
+				"\"Toeing the line\" is not permitted. Do not try to bypass the rules by bending them or ignoring the rule's intention.",
+				"Racial and homophobic slurs are not permitted."
+			]
+		},
+		{
+			"title": "You Must Roleplay",
+			"clauses": [
+				"Your character is a grown adult working on a research station for a major company. You are a professional. Act like it.",
+				"Netspeak (lol, wtf, brb, etc.) is not permitted in character (IC).",
+				"Using emotes to speak when you other wise can't, may result in punishment.",
+				"Use a lore-friendly name, and follow the naming conventions for your species. Do not use the names of famous real/fictional people/characters. Naming yourself after pop-culture items, icons, or references is also prohibited. Only clowns can use meme names.", 
+				"Have knowledge of your role. If you are new to the game, we recommend playing on our main server instead.",
+				"Respect space law and standard operating procedures. Committing minor crimes is justifiable through roleplay, but major crimes should typically be avoided."
+			]
+		},
+		{
+			"title": "Don't Self Antag",
+			"clauses": [
+				"Self-antagging includes (but is not limited to) damaging the station, attacking other players without reason, and subverting the established chain of command as a non-antagonist role. You need a reason justified by roleplay to cause harm to others.",
+				"Griefing includes (but is not limited to) intentionally ruining the game by abusing mechanics such as exploits, spamming the shuttle, causing server crashes, etc.",
+				"You may defend yourself against others, but avoid escalating the situation.",
+				"Admins can punish you if they believe your actions are unjustified or over-escalating the situation.",
+				"Even if your actions are justified and do not result in out-of-character (OOC) consequences, you may still face consequences in character (IC).",
+				"No, roleplaying as an \"insane person\" does not mean you get to kill people."
+			]
+		},
+		{
+			"title": "No Advertising/Recruiting",
+			"clauses": [
+				"Do not post byond:// links or IPs to other servers and talk about how much better you think said servers are. People are more than welcome to play elsewhere, you're just being rude.",
+				"Obviously, players are aware that other servers exist and may freely discuss them. Just don't be an ass about it.",
+				"Do not try to lure players to the containment servers without making them aware of what they are getting into.",
+				"If you attempt to poach/recruit our staff members, we reserve the right to laugh nervously while we tighten the leashes and silence your heresy."
+			]
+		},
+		{
+			"title": "No Ban-Evading or Multikeying",
+			"clauses": [
+				"If you've been banned, you probably deserved it. Accept responsibility for your actions and wait to be unbanned. You can file an appeal or admin complaint on the forums if you genuinely feel you didn't deserve it.",
+				"Do not attempt to bypass a ban by using another account, using another IP address, or any other means. All of your accounts will be permabanned, no exceptions.",
+				"The only exception is if you were banned for having an offensive ckey, and you created a new account with an inoffensive ckey.",
+				"No multikeying. Multikeying is defined as logging into the server with two or more separate accounts during the same round. Multikeying will result in a permaban."
+			]
+		},
+		{
+			"title": "Antag Conduct",
+			"clauses": [
+				"Antags are expected to follow all rules that do not interfere with their objective.",
+				"Antags are free to complete their objective by any means available, within reason. For example, destroying large amounts of the station is reasonable if your objective is to hijack the shuttle; it is not acceptable if your objective is to steal the CE's blueprints.",
+				"Try to avoid unnecessary carnage that ultimately just ruins the round for other players, unless said players are your target. Subtlety goes a long way.",
+				"You must work with fellow antags towards completing a group objective if there is one."
+			]
+		},
+		{
+			"title": "No Powergaming",
+			"clauses": [
+				"As a non-security & non-command crewmember, you're not an experienced soldier. Do not rush into danger without reason.",
+				"Do not collect dangerous items, weapons, or tools \"just in case\". Do not wear a hardsuit, riot suit, or similar bulky/uncomfortable armor for the entire round.",
+				"Use reasonable self-defense; subdue, but do not try to revenge-kill, any assailants.",
+				"Do not run around with all of the genetic powers, three buffing viruses and the entire armory in your backpack. This is an example of severe powergaming.",
+				"Antags are exempt from this rule."
+			]
+		},
+		{
+			"title": "Ahelp and Ticket Conduct",
+			"clauses": [
+				"Ignoring an admin PM is seen as an admission of guilt.",
+				"If you are preoccupied and cannot send a detailed reply at the moment, send a short reply making the admin aware of that, and then make yourself available as soon as possible.",
+				"Respect and patience are the key to leniency.",
+				"An admin's word is law. Follow what they say without argument. However, admins are also accountable for their decisions. You can file a complaint on the forums."
+			]
+		},
+		{
+			"title": "No Metagaming",
+			"clauses": [
+				"Using knowledge your character should not have is not allowed. This includes (but is not limited to) all knowledge you gain as a ghost.",
+				"In character (IC) communication in out-of-character (OOC) channels, Discord, or other platforms is not allowed. You cannot discuss an ongoing round until the round has ended.",
+				"Recording and streaming are allowed. Streams must have a minimum 1 minute delay and are responsible for any metacommunications in their chat feed. Recordings must not be uploaded until the round has ended.",
+				"You cannot attack or accuse players as a result of events that occurred in a previous life. When you are cloned, you do not know who your killer is unless someone else tells you."
+			]
+		},
+		{
+			"title": "Leaving the Game",
+			"clauses": [
+				"All players are strongly encouraged to use the cryopods to exit the round. This frees up the job slot so someone else can take it.",
+				"You will not be punished for logging out after a round starts unless you are a head of staff or other important role.",
+				"Heads of staff and other important roles must notify the admins if they wish to leave, or they may be jobbanned.",
+				"Suiciding or logging off simply because you did not become an antagonist is not allowed. If you primarily wish to play as an antag, we strongly encourage playing on the main server instead."
+			]
+		},
+		{
+			"title": "Heads of Staff Conduct",
+			"clauses": [
+				"Heads of Staff are held to higher standards than regular crewmembers. You are expected to be a competent person and competent at your job.",
+				"Heads of Staff, generally, should not abandon their post. This means you should not leave the station on space adventures or explore lavaland.",
+				"Heads of Staff should not overstep their bounds. For example, the Head of Personnel is not a member of security and should not run around hunting criminals. Nor should the Head of Personnel loot the armory or give themself all-access.",
+				"The Captain is not an Assistant with all-access. You are expected to be a competent leader and ensure the success and survival of your station and its crew."
+			]
+		},
+		{
+			"title": "Do Your Job",
+			"clauses": [
+				"Non-antagonists are required to perform their assigned job in good faith. Breaks are fine, but ignoring your department and obligations is not. This goes especially true for Silicons, Heads of Staff, and Security.",
+				"As people are expected to do their job, you are also expected to let people do theirs. If someone is manning a department, you must make a reasonable effort to solicit them for the service you require of them. If they are absent or unwilling to provide a necessary service or item, you are permitted to attempt to do it yourself, at the risk of IC consequences.",
+				"Being an assistant is not a free pass to ignore any part of this rule. Assistants are expected to help around the station, not immediately rush all the supplies that aren’t nailed down or behind locked doors - Ask for whatever supplies you need from the department(s) you’re helping."
+			]
+		}
+	]
+}

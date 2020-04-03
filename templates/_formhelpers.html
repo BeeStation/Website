@@ -1,0 +1,30 @@
+{% macro render_field(field) %}
+  {{ field(**kwargs)|safe }}
+  <br>
+  <div class=form-errors>
+  {% if field.errors %}
+
+    {% for error in field.errors %}
+      <div class="form-error">- {{ error }}</div>
+    {% endfor %}
+
+  {% endif %}
+  </div>
+  <br>
+{% endmacro %}
+
+
+{% macro render_post_field(field) %}
+  {{ field(**kwargs)|safe }}
+  <br>
+  <div class=form-post-errors>
+  {% if field.errors %}
+
+    {% for error in field.errors %}
+      <div class="form-post-error">- {{ error }}</div>
+    {% endfor %}
+
+  {% endif %}
+  </div>
+  <br>
+{% endmacro %}
