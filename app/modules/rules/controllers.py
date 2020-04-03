@@ -19,5 +19,5 @@ def page_rules():
 	if not server:
 		return abort(404)
 
-	return render_template("rules.html", rules=json.load(open("config/rules/{}.json".format(server["id"]))))
+	return render_template("rules.html", rules=json.load(open("app/config/rules/{}.json".format(server["id"]))))
 
