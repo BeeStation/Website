@@ -11,15 +11,17 @@ class DBClient:
 	password	= None
 	host		= None
 	dbname		= None
+	port		= None
 
-	def __init__(self, user, password, host, dbname):
+	def __init__(self, user, password, host, port, dbname):
 		self.user = user
 		self.password = password
 		self.host = host
 		self.dbname = dbname
+		self.port = port
 
 	def connect(self):
-		self.conn = MySQLdb.connect(user=self.user,passwd=self.password,host=self.host,db=self.dbname, cursorclass=MySQLdb.cursors.DictCursor)
+		self.conn = MySQLdb.connect(user=self.user,passwd=self.password,host=self.host,db=self.dbname,port=self.port,cursorclass=MySQLdb.cursors.DictCursor)
 		self.conn.autocommit(True)
 
 	def query(self, sql, placeholders=None):
@@ -129,6 +131,7 @@ game_db = GameDB(
 	cfg.PRIVATE["database"]["game"]["user"],
 	cfg.PRIVATE["database"]["game"]["pass"],
 	cfg.PRIVATE["database"]["game"]["host"],
+	cfg.PRIVATE["database"]["game"]["port"],
 	cfg.PRIVATE["database"]["game"]["db"]
 )
 
@@ -136,6 +139,7 @@ site_db = SiteDB(
 	cfg.PRIVATE["database"]["site"]["user"],
 	cfg.PRIVATE["database"]["site"]["pass"],
 	cfg.PRIVATE["database"]["site"]["host"],
+	cfg.PRIVATE["database"]["site"]["port"],
 	cfg.PRIVATE["database"]["site"]["db"]
 )
 
@@ -145,21 +149,21 @@ class Player():
 			self.valid = False
 			return
 
-		self.ckey = d["ckey"]
-		self.byond_key = d["byond_key"]
-		self.firstseen = d["firstseen"]
-		self.firstseen_round_id = d["firstseen_round_id"]
-		self.lastseen = d["lastseen"]
-		self.lastseen_round_id = d["lastseen_round_id"]
-		self.ip = d["ip"]
-		self.computerid = d["computerid"]
-		self.lastadminrank = d["lastadminrank"]
-		self.accountjoindate = d["accountjoindate"]
-		self.flags = d["flags"]
-		self.antag_tokens = d["antag_tokens"]
-		self.metacoins = d["metacoins"]
+		self.ckey				= d["ckey"]
+		self.byond_key			= d["byond_key"]
+		self.firstseen			= d["firstseen"]
+		self.firstseen_round_id	= d["firstseen_round_id"]
+		self.lastseen			= d["lastseen"]
+		self.lastseen_round_id	= d["lastseen_round_id"]
+		self.ip					= d["ip"]
+		self.computerid			= d["computerid"]
+		self.lastadminrank		= d["lastadminrank"]
+		self.accountjoindate	= d["accountjoindate"]
+		self.flags				= d["flags"]
+		self.antag_tokens		= d["antag_tokens"]
+		self.metacoins			= d["metacoins"]
+		
 		self.valid = True
-		return
 
 	def __bool__(self):
 		return self.valid
