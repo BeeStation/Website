@@ -1,3 +1,3 @@
 # BeeStation Website
 
-> **Developer's Note:** I fully acknowledge that this isn't in an open source state whatsoever. You won't be able to get it to run on your comuputer locally so don't even try. However now that it is open source I will be actively making improvements trying to clean up this embarassment. ***- qwerty***
+> **Developer's Note:** Currently you will not be able to run this on your local machine because you lack app/config/private.yml, a file that stores many of our private tokens or passwords. I may add support for running without it in the near future so it is easier to setup an instance of the site on your local machine for contributing. ***- qwerty***
