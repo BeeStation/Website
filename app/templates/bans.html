@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block title %}Bans{% endblock %}
+{% block active %}bans{% endblock %}
+{% block head %}
+<meta property="og:title" content="BeeStation - Bans" />
+<meta property="og:description" content="BeeStation is a newbie friendly Space Station 13 server. The server was created in march 2018. We like to put a fun touch to the rounds to make a better experience." />
+{% endblock %}
+
+{% block content %}
+
+<div style="display:flex;flex-direction:row;justify-content:center;align-items:stretch;">
+  <div style="flex-basis:33.33%;"></div>
+  <div style="text-align:center;flex-basis:33.33%;">{% if buttons[0] %}<a href="/bans?page={{page-1}}{% if query %}&q={{query}}{% endif %}" class="button"><i class="fas fa-arrow-left"></i></a>{% endif %}{% if pages > 1 %}<span style="text-align: center;margin:0px 20px; font-size:18px;">page {{page}} of {{pages}}</span>{% endif %}{% if buttons[1] %}<a href="/bans?page={{page+1}}{% if query %}&q={{query}}{% endif %}" class="button"><i class="fas fa-arrow-right"></i></a>{% endif %}</div>
+  <form style="text-align:right;flex-basis:33.33%;"><input class="form-input" name="q" type="text" placeholder="Search ckey..." {% if query %}value="{{query}}"{% endif %}></form>
+</div>
+
+
+<br>
+
+{% if not bans %}
+  <div style="text-align:center;" class="ban-header">No Bans Found</div>
+{% endif %}
+
+{% for ban in bans %}
+<div class="ban">
+  <div class="ban-header">{{ ban["user"] }}</div>
+  <div class="ban-reason">{{ ban["reason"] }}</div><br>
+  <div style="width:100%;">
+  <div style="width:130px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Type:</b> {{ ban["type"] }}</div>
+  <div style="width:275px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Ban Date:</b> {{ ban["ban_date"].strftime("%Y-%m-%d %H:%M") }}</div>
+  <div style="width:295px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Expire Date:</b> {{ ban["unban_date"].strftime("%Y-%m-%d %H:%M") if ban["unban_date"] else "9999-01-01 12:00" }}</div>
+  <div style="width:150px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Round:</b> {{ ban["round_id"] or "Error!" }}</div>
+  <div style="width:150px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Server:</b> {% if ban["global"] %}All{% else %}{{ util.get_server(ban["server"])["nickname"] }}{% endif %}</div>
+  <div style="width:250px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Admin:</b> {{ ban["banner"] }}</div>
+  </div>
+  {% if ban["job"] != None and ban["job"] != ["Server"] %}
+  <div style="width:100%;" class="ban-reason" style="margin-top:20px;"><b class="ban-reason-title">Job:</b> {{ ', '.join(ban["job"]) }}</div>
+  {% endif %}
+</div>
+{% endfor %}
+<br>
+<div style="text-align:center">{% if buttons[0] %}<a href="/bans?page={{page-1}}{% if query %}&q={{query}}{% endif %}" class="button"><i class="fas fa-arrow-left"></i></a>{% endif %}{% if pages > 1 %}<span style="text-align: center;margin:0px 20px; font-size:18px;">page {{page}} of {{pages}}</span>{% endif %}{% if buttons[1] %}<a href="/bans?page={{page+1}}{% if query %}&q={{query}}{% endif %}" class="button"><i class="fas fa-arrow-right"></i></a>{% endif %}</div>
+{% endblock %}

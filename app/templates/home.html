@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block active %}home{% endblock %}
+{% block head %}
+<meta property="og:title" content="BeeStation - Home" />
+<meta property="og:description" content="BeeStation is a newbie friendly Space Station 13 server. The server was created in march 2018. We like to put a fun touch to the rounds to make a better experience." />
+<script src="/static/js/home.js" type="application/javascript"></script>
+{% endblock %}
+
+{% block content %}
+<div class="server-info">
+  <h1 class="site-title">BeeStation, For Beginners</h1>
+  <p class="text-indent">It appears you have stumbled into the cozy corner of the BeeStation website. It has the rules for the server, a server statistics page, a page to review server bans, a forum, and links to many more places you should visit!</p>
+
+  <p class="text-indent">BeeStation is a Space Station 13 server, hosted by Crossedfall, which was created in March 2018. We focus greatly on being newbie friendly. We are a Low RP server. Our codebase is /tg/, but we are constantly striving to change up our code and add in new features. We love to put a touch of fun into every round to keep things interesting.</p>
+
+  <p class="text-indent">Our server is open source, so feel free to contribute to the code! We also have a Discord server with a great helpful community, a forum for ban appeals, staff applications, or other things, and an Informative Wiki.</p>
+
+  <p class="text-indent">While we are for beginners, we also specialize in Low RP chaotic fun! Hop on and enjoy the ride...</p>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-header">Total Players</div><div id="stat-total-players" class="stat-value odometer">...</div></div>
+    <div class="stat"><div class="stat-header">Total Rounds</div><div id="stat-total-rounds" class="stat-value odometer">...</div></div>
+    <div class="stat"><div class="stat-header">Total Connections</div><div id="stat-total-connections" class="stat-value odometer">...</div></div>
+  </div>
+
+<div id="stat-map" style="margin: 0 auto; text-align: center; font-size: var(--bee-text-big);">Help us reach our monthly budget goal with <a class="link anim-shine" style="display: inline-block; margin: 0 0;" href="https://www.patreon.com/user?u=10639001">Patreon</a></div>
+
+  <div class="progress-bg">
+    <div class="progress-bar">
+        <h3 class="progress-raised"></h3>
+      </div>
+  </div>
+
+</div>
+
+<div class="links">
+  <div class="links-header">Useful Links</div>
+  <a class="link anim-shine" href="/join/{{util.get_server_default()["id"]}}">Play Now!</a>
+  <a class="link anim-shine" href="/rules">BeeStation Rules</a>
+  <a target="_blank" class="link anim-shine" href="https://wiki.beestation13.com">BeeStation Wiki</a>
+  <a target="_blank" class="link anim-shine" href="https://discord.gg/Y7RTtkK">Discord Server</a>
+  <a target="_blank" class="link anim-shine" href="https://github.com/BeeStation/BeeStation-Hornet">Github Repository</a>
+  <a target="_blank" class="link anim-shine" href="https://wiki.beestation13.com/view/Starter_guide">Starter Guide</a>
+  <a target="_blank" class="link anim-shine" href="https://www.reddit.com/r/SS13">SS13 Subreddit</a>
+  <a target="_blank" class="link anim-shine" href="https://www.patreon.com/user?u=10639001">Patreon</a>
+  <a target="_blank" class="link anim-shine" href="/linkpatreon">Link Patreon</a>
+  <a target="_blank" class="link anim-shine" href="https://spacestation13.com/">What is SS13?</a>
+</div>
+
+<div class="links" style="margin-top: 25px;">
+  <div class="links-header">Servers</div>
+  {% for server in cfg.SERVERS %}
+    {% if server["open"] %}
+      <a class="link anim-shine" href="/join/{{ server["id"] }}">{{ server["name"] }}</a>
+    {% else %}
+      <s><a class="link" style="color: var(--bee-gray);">{{ server["name"] }}</a></s>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% endblock %}
