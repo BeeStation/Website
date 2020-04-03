@@ -1,38 +1,37 @@
 {% extends "layout.html" %}
 {% block title %}Stats{% endblock %}
 {% block active %}stats{% endblock %}
-{% block head %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<meta property="og:title" content="BeeStation - Stats" />
 
+{% block head %}
+	<meta property="og:title" content="BeeStation - Stats" />
 {% endblock %}
 
 {% block content %}
 
-{% for server in cfg.SERVERS %}
-	{% if server["open"] %}
-		<hr>
+	{% for server in cfg.SERVERS %}
+		{% if server["open"] %}
+			<hr>
 
-		<h1 style="text-align: center;">{{ server["name"] }}</h1>
+			<h1 style="text-align: center;">{{ server["name"] }}</h1>
 
-		<div class="stats">
-			<div class="stat"><div class="stat-header">Players</div><div id="stat-players-{{server.id}}" class="stat-value odometer">...</div></div>
-			<div class="stat"><div class="stat-header">Admins</div><div id="stat-admins-{{server.id}}" class="stat-value odometer">...</div></div>
-			<div class="stat"><div class="stat-header">Game Mode</div><div id="stat-mode-{{server.id}}" class="stat-value">...</div></div>
-		</div>
-		<div class="stats">
-			<div class="stat"><div class="stat-header">Round ID</div><div id="stat-round-{{server.id}}" class="stat-value odometer">...</div></div>
-			<div class="stat"><div class="stat-header">Duration</div><div id="stat-duration-{{server.id}}" class="stat-value">...</div></div>
-			<div class="stat"><div class="stat-header">Map</div><div id="stat-map-{{server.id}}" class="stat-value">...</div></div>
-		</div>
-	{% endif %}
-{% endfor %}
+			<div class="stats">
+				<div class="stat"><div class="stat-header">Players</div><div id="stat-players-{{server.id}}" class="stat-value odometer">...</div></div>
+				<div class="stat"><div class="stat-header">Admins</div><div id="stat-admins-{{server.id}}" class="stat-value odometer">...</div></div>
+				<div class="stat"><div class="stat-header">Game Mode</div><div id="stat-mode-{{server.id}}" class="stat-value">...</div></div>
+			</div>
+			<div class="stats">
+				<div class="stat"><div class="stat-header">Round ID</div><div id="stat-round-{{server.id}}" class="stat-value odometer">...</div></div>
+				<div class="stat"><div class="stat-header">Duration</div><div id="stat-duration-{{server.id}}" class="stat-value">...</div></div>
+				<div class="stat"><div class="stat-header">Map</div><div id="stat-map-{{server.id}}" class="stat-value">...</div></div>
+			</div>
+		{% endif %}
+	{% endfor %}
 
-<hr><br>
+	<hr><br>
 
-<script>
-updateStats()
-window.setInterval(updateStats, 10000)
-</script>
+	<script>
+	updateStats()
+	window.setInterval(updateStats, 10000)
+	</script>
 
 {% endblock %}

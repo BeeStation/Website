@@ -9,7 +9,7 @@ from flask import request
 
 import patreon
 
-bp_patreon = Blueprint('patreon_oauth', __name__)
+bp_patreon = Blueprint('patreon', __name__)
 
 @bp_patreon.route("/patreonauth")
 def page_patreon_oauth():

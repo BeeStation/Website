@@ -10,6 +10,6 @@ bp_leaderboard = Blueprint('leaderboard', __name__)
 
 @bp_leaderboard.route("/leaderboard")
 def page_leaderboard():
-	sort = request.args.get('sort', type=str, default='beecoins')
+	sort = request.args.get('sort', type=str, default='metacoins')
 	lb = db.game_db.get_leaderboard(sort)
 	return render_template("leaderboard.html", leaderboard=lb, sort=sort)

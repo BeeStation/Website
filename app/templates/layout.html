@@ -4,10 +4,13 @@
     <meta property="og:type"  content="website" />
     <meta property="og:image" content="http://beestation13.com/static/img/logo.png" />
     <meta property="og:url" content="{{ request.url }}" />
-    <meta name="description"  content="BeeStation is a newbie friendly Space Station 13 server. Hop on to enjoy some Low RP chaotic fun!"/>
+    <meta name="description"  content="{{ cfg.WEBSITE["description"] }}"/>
+    <meta property="og:description" content="{{ cfg.WEBSITE["description"] }}" />
+    
     {% block head %}
 
     {% endblock %}
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="application/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js" type="application/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js" type="application/javascript"></script>

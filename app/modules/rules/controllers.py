@@ -13,8 +13,8 @@ bp_rules = Blueprint('rules', __name__)
 
 @bp_rules.route("/rules")
 def page_rules():
-	alias = request.args.get('server', type=str, default="bee")
-	server = util.get_server_from_alias(alias)
+	server_id = request.args.get('server', type=str, default=util.get_server_default()["id"])
+	server = util.get_server(server_id)
 
 	if not server:
 		return abort(404)

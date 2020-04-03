@@ -1,21 +1,20 @@
 {% extends "layout.html" %}
 {% block title %}Library{% endblock %}
 {% block active %}library{% endblock %}
+
 {% block head %}
-<meta property="og:title" content="BeeStation - Library" />
-<meta property="og:description" content="BeeStation is a newbie friendly Space Station 13 server. The server was created in march 2018. We like to put a fun touch to the rounds to make a better experience." />
+  <meta property="og:title" content="BeeStation - Library" />
 {% endblock %}
 
 {% block content %}
+  <div class="post-title"><a href="/library">Library</a></div><br><br>
 
-<div class="post-title"><a href="/library">Library</a></div><br><br>
-
-<div style="text-align:center">{% if buttons[0] %}<a href="/library?page={{page-1}}" class="button">&lt;</a>{% endif %}{% if pages > 1 %}<span style="text-align: center;margin:0px 20px; font-size:18px;">page {{page}} of {{pages}}</span>{% endif %}{% if buttons[1] %}<a href="/library?page={{page+1}}" class="button">&gt;</a>{% endif %}</div>
-{% for book in books %}
-<div class="small-post" onclick="location.href = '/library/{{book["id"]}}'">
-  <div class="small-post-title">{{book["title"]}}</div><div class="small-post-author">{{book["author"]}}</div>
-  <div class="small-post-stats"><div class="small-post-stat"><i class="fas fa-book"></i> {{book["category"]}}</div><div class="small-post-stat"><i class="fas fa-user"></i> {{ book["ckey"] }}</div></div>
-</div>
-{% endfor %}
-<div style="text-align:center">{% if buttons[0] %}<a href="/library?page={{page-1}}" class="button">&lt;</a>{% endif %}{% if pages > 1 %}<span style="text-align: center;margin:0px 20px; font-size:18px;">page {{page}} of {{pages}}</span>{% endif %}{% if buttons[1] %}<a href="/library?page={{page+1}}" class="button">&gt;</a>{% endif %}</div>
+  <div style="text-align:center">{% if buttons[0] %}<a href="/library?page={{page-1}}" class="button">&lt;</a>{% endif %}{% if pages > 1 %}<span style="text-align: center;margin:0px 20px; font-size:18px;">page {{page}} of {{pages}}</span>{% endif %}{% if buttons[1] %}<a href="/library?page={{page+1}}" class="button">&gt;</a>{% endif %}</div>
+  {% for book in books %}
+    <div class="small-post" onclick="location.href = '/library/{{book["id"]}}'">
+      <div class="small-post-title">{{book["title"]}}</div><div class="small-post-author">{{book["author"]}}</div>
+      <div class="small-post-stats"><div class="small-post-stat"><i class="fas fa-book"></i> {{book["category"]}}</div><div class="small-post-stat"><i class="fas fa-user"></i> {{ book["ckey"] }}</div></div>
+    </div>
+  {% endfor %}
+  <div style="text-align:center">{% if buttons[0] %}<a href="/library?page={{page-1}}" class="button">&lt;</a>{% endif %}{% if pages > 1 %}<span style="text-align: center;margin:0px 20px; font-size:18px;">page {{page}} of {{pages}}</span>{% endif %}{% if buttons[1] %}<a href="/library?page={{page+1}}" class="button">&gt;</a>{% endif %}</div>
 {% endblock %}

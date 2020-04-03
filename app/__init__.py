@@ -8,7 +8,7 @@ from flask import session
 from flask_cors import CORS
 
 
-app = Flask(__name__, static_url_path="/static")
+app = Flask(__name__, static_url_path=cfg.WEBSITE["static-url-path"])
 
 
 app.url_map.strict_slashes = False

@@ -9,7 +9,7 @@ bp_redirects = Blueprint('redirects', __name__)
 
 @bp_redirects.route("/rules/rp") # Temporary as I get crossed to update the rules urls everywhere
 def page_rules_tempredirect():
-	return redirect("/rules?server=rp")
+	return redirect("/rules?server=bs_sage")
 
 
 @bp_redirects.route("/join/<string:id>")
