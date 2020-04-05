@@ -3,6 +3,13 @@
 	"description": "BeeRP is a medium roleplay server with higher/more roleplay being greatly encouraged. \"Medium\" is loosely seen in our server as having an environment in which you can roleplay a character yet still have room for shenanigans and humor. In other words, you should consider your character to be a separate entity from you as a player. Your character's actions and feelings in-game should be based solely on your character's experiences and not your own as the player. It is also encouraged to use role play dialogue before making split decisions such as using lethal force against another character",
 	"rules": [
 		{
+		"title": "Admin Discretion",
+			"clauses": [
+				"Admins have the authority to 'ignore' rules when they feel it's in the best interest of the server/playerbase. They will, however, be fully accountable for their actions.",
+				"Listen to them without argument during the round, but if you feel there is a problem with their actions, report them on the forums afterwards. The Admin Conduct can be found here: https://pastebin.com/dpY4CyJB"
+			]
+		},
+		{
 			"title": "Use Common Sense",
 			"clauses": [
 				"If everybody followed this rule, none of the others would be necessary.",
