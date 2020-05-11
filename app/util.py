@@ -109,8 +109,8 @@ def make_unique(original_list):
 @cached(cache=TTLCache(ttl=30, maxsize=1))
 def get_patreon_income():
 	try:
-		r = requests.get("https://www.patreon.com/api/campaigns/1671674", timeout=2).json()["data"]["attributes"]["pledge_sum"]+1000000
+		r = requests.get("https://www.patreon.com/api/campaigns/1671674", timeout=2).json()["data"]["attributes"]["pledge_sum"]
 	except:
-		r = 1000000
+		r = 0
 
 	return r
