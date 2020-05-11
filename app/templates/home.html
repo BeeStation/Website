@@ -22,7 +22,7 @@
       <div class="stat"><div class="stat-header">Total Connections</div><div id="stat-total-connections" class="stat-value odometer">...</div></div>
     </div>
 
-  <div id="stat-map" style="margin: 0 auto; text-align: center; font-size: var(--bee-text-big);">Help us reach our monthly budget goal with <a class="link" style="display: inline-block; margin: 0 0;" href="{{ cfg.WEBSITE["links"]["patreon"] }}">Patreon</a></div>
+  <div id="stat-map" style="margin: 0 auto; text-align: center; font-size: var(--bee-text-big);">Help us reach our monthly budget goal with <a class="link anim-shine" style="display: inline-block; margin: 0 0;" href="{{ cfg.WEBSITE["links"]["patreon"] }}">Patreon</a></div>
 
     <div class="progress-bg">
       <div class="progress-bar">
@@ -34,23 +34,23 @@
 
   <div class="links">
     <div class="links-header">Useful Links</div>
-    <a class="link" href="/join/{{util.get_server_default()["id"]}}">Play Now!</a>
-    <a class="link" href="/rules">BeeStation Rules</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["wiki"] }}">BeeStation Wiki</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["discord"] }}">Discord Server</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["github"] }}">Github Repository</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["starter-guide"] }}">Starter Guide</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["subreddit"] }}">SS13 Subreddit</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["patreon"] }}">Patreon</a>
-    <a target="_blank" class="link" href="/linkpatreon">Link Patreon</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["ss13-website"] }}">What is SS13?</a>
+    <a class="link anim-shine" href="/join/{{util.get_server_default()["id"]}}">Play Now!</a>
+    <a class="link anim-shine" href="/rules">BeeStation Rules</a>
+    <a target="_blank" class="link anim-shine" href="{{ cfg.WEBSITE["links"]["wiki"] }}">BeeStation Wiki</a>
+    <a target="_blank" class="link anim-shine" href="{{ cfg.WEBSITE["links"]["discord"] }}">Discord Server</a>
+    <a target="_blank" class="link anim-shine" href="{{ cfg.WEBSITE["links"]["github"] }}">Github Repository</a>
+    <a target="_blank" class="link anim-shine" href="{{ cfg.WEBSITE["links"]["starter-guide"] }}">Starter Guide</a>
+    <a target="_blank" class="link anim-shine" href="{{ cfg.WEBSITE["links"]["subreddit"] }}">SS13 Subreddit</a>
+    <a target="_blank" class="link anim-shine" href="{{ cfg.WEBSITE["links"]["patreon"] }}">Patreon</a>
+    <a target="_blank" class="link anim-shine" href="/linkpatreon">Link Patreon</a>
+    <a target="_blank" class="link anim-shine" href="{{ cfg.WEBSITE["links"]["ss13-website"] }}">What is SS13?</a>
   </div>
 
   <div class="links" style="margin-top: 25px;">
     <div class="links-header">Servers</div>
     {% for server in cfg.SERVERS %}
       {% if server["open"] %}
-        <a class="link" href="/join/{{ server["id"] }}">{{ server["name"] }}</a>
+        <a class="link anim-shine" href="/join/{{ server["id"] }}">{{ server["name"] }}</a>
       {% else %}
         <s><a class="link" style="color: var(--bee-gray);">{{ server["name"] }}</a></s>
       {% endif %}
