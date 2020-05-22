@@ -211,7 +211,7 @@ class Player():
 		return c.fetchone()["COUNT(*)"]
 
 	def get_bans(self):
-		c = game_db.query("SELECT bantime,round_id,role,expiration_time,reason,ckey,a_ckey FROM SS13_ban WHERE ckey = %s ORDER BY bantime DESC", (self.ckey, ))
+		c = game_db.query("SELECT bantime,round_id,role,expiration_time,reason,ckey,a_ckey FROM SS13_ban WHERE ckey = %s and hidden = 0 ORDER BY bantime DESC", (self.ckey, ))
 		db_bans = c.fetchall()
 		bans = []
 		for ban in db_bans:
