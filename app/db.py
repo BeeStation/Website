@@ -55,7 +55,7 @@ class GameDB(DBClient):
 		return c.fetchall()
 
 	def get_bans(self, start, end, query):
-		c = self.query("SELECT bantime,round_id,role,expiration_time,reason,ckey,a_ckey,server_name,global_ban FROM SS13_ban ORDER BY bantime DESC")
+		c = self.query("SELECT bantime,round_id,role,expiration_time,reason,ckey,a_ckey,server_name,global_ban FROM SS13_ban WHERE hidden=0 ORDER BY bantime DESC")
 		db_bans = c.fetchall()
 		bans = []
 		i = 0
@@ -211,7 +211,7 @@ class Player():
 		return c.fetchone()["COUNT(*)"]
 
 	def get_bans(self):
-		c = game_db.query("SELECT bantime,round_id,role,expiration_time,reason,ckey,a_ckey FROM SS13_ban WHERE ckey = %s ORDER BY bantime DESC", (self.ckey, ))
+		c = game_db.query("SELECT bantime,round_id,role,expiration_time,reason,ckey,a_ckey FROM SS13_ban WHERE ckey = %s AND hidden = 0 ORDER BY bantime DESC", (self.ckey, ))
 		db_bans = c.fetchall()
 		bans = []
 		for ban in db_bans:
