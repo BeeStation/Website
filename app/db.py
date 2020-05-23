@@ -55,11 +55,7 @@ class GameDB(DBClient):
 		return c.fetchall()
 
 	def get_bans(self, start, end, query):
-<<<<<<< HEAD
-		c = self.query("SELECT bantime,round_id,role,expiration_time,reason,ckey,a_ckey,server_name,global_ban FROM SS13_ban WHERE hidden=0 ORDER BY bantime DESC")
-=======
 		c = self.query("SELECT bantime,round_id,role,expiration_time,reason,ckey,a_ckey,server_name,global_ban FROM SS13_ban WHERE hidden = 0 ORDER BY bantime DESC")
->>>>>>> 5e3e8d0b69f37ee0fbe402501ca5aff545c54d08
 		db_bans = c.fetchall()
 		bans = []
 		i = 0
