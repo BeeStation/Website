@@ -15,6 +15,8 @@ def page_bans():
 	page = request.args.get('page', type=int, default=1)
 	query = request.args.get('q', type=str, default="")
 
+	page = max(min(page, 1000000), 1) # Arbitrary number. We probably won't ever have to deal with 1,000,000 pages of bans. Hopefully..
+
 	response = db.game_db.get_bans((page-1)*cfg.WEBSITE["items-per-page"], page*cfg.WEBSITE["items-per-page"], query.lower().strip())
 
 	bans = response[0]
