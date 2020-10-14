@@ -28,13 +28,13 @@
 				"Players intentionally cooperating with antagonists are also valid. Self-antags are also valid (act like an antag, be treated like an antag.)",
 				"Admins can deem a player valid.",
 				"Mimes breaking their vow of silence are valid.",
-				"ERP and Spamming radio/communications makes you valid.",
+				"Spamming radio/communications makes you valid.",
 				"Validhunting (seeking/baiting players to kill in validity) in turn, makes you valid.",
 				"Heads of Command/Security cannot make players valid, only warrant their arrest."
 			]
 		},
 		{
-			"title": "No Self-Antagging or Greif",
+			"title": "No Self-Antagging or Grief",
 			"clauses": [
 				"Self-antagging includes damaging the station, attacking other players without a valid reason, and subverting the established chain of command as a non-antagonist role.",
 				"Griefing includes intentionally ruining the game by abusing ingame mechanics (exploits, force crashes/lag, spamming shuttle delay, ect.)",
