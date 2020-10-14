@@ -38,10 +38,13 @@ def page_api_stats_totals():
 @bp_api.route("/budget")
 def page_api_budget():
 	income = util.get_patreon_income()
+
+	current_goal = max(goal for goal in cfg.WEBSITE['patreon-goals'] if goal > income) # Find the lowest goal we haven't passed
+
 	budget_stats = {
 		"income": round(income/100, 2),
-		"goal": round(cfg.WEBSITE['patreon-goal']/100, 2),
-		"percent": int(income/cfg.WEBSITE['patreon-goal']*100)
+		"goal": round(current_goal/100, 2),
+		"percent": int(income/current_goal*100)
 	}
 	return jsonify(budget_stats)
 
