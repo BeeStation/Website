@@ -39,7 +39,7 @@ def page_api_stats_totals():
 def page_api_budget():
 	income = util.get_patreon_income()
 
-	current_goal = max(goal for goal in cfg.WEBSITE['patreon-goals'] if goal > income) # Find the lowest goal we haven't passed
+	current_goal = min([goal for goal in cfg.WEBSITE['patreon-goals'] if goal > income] or (max(cfg.WEBSITE['patreon-goals']),)) # Find the lowest goal we haven't passed
 
 	budget_stats = {
 		"income": round(income/100, 2),
