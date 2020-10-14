@@ -122,7 +122,7 @@ def get_patreon_income():
 
 		if pledge_sum_currency != "USD": # thanks a lot patreon your api is really great guys keep at it
 			exchange_ranges = get_exchange_rates() # god this is so scuffed I hate it
-			pledge_sum *= exchange_ranges[pledge_sum_currency]
+			pledge_sum = pledge_sum / exchange_ranges[pledge_sum_currency]
 		
 		return pledge_sum
 		
