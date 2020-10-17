@@ -35,5 +35,5 @@
   nickname: 'NSV'
   host: 'game.nsv.beestation13.com'
   port: 1337
-  open: false
+  open: true
   color: '150, 0, 0'
