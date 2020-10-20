@@ -33,20 +33,6 @@
   </div>
 
   <div class="links">
-    <div class="links-header">Useful Links</div>
-    <a class="link" href="/join/{{util.get_server_default()["id"]}}">Play Now!</a>
-    <a class="link" href="/rules">BeeStation Rules</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["wiki"] }}">BeeStation Wiki</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["discord"] }}">Discord Server</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["github"] }}">Github Repository</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["starter-guide"] }}">Starter Guide</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["subreddit"] }}">SS13 Subreddit</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["patreon"] }}">Patreon</a>
-    <a target="_blank" class="link" href="/linkpatreon">Link Patreon</a>
-    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["ss13-website"] }}">What is SS13?</a>
-  </div>
-
-  <div class="links" style="margin-top: 25px;">
     <div class="links-header">Servers</div>
     {% for server in cfg.SERVERS %}
       {% if server["open"] %}
@@ -57,4 +43,16 @@
     {% endfor %}
   </div>
 
+  <div class="links" style="margin-top: 25px;">
+    <div class="links-header">Useful Links</div>
+    <a class="link" href="/rules">BeeStation Rules</a>
+    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["wiki"] }}">BeeStation Wiki</a>
+    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["discord"] }}">Discord Server</a>
+    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["github"] }}">Github Repository</a>
+    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["starter-guide"] }}">Starter Guide</a>
+    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["subreddit"] }}">SS13 Subreddit</a>
+    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["patreon"] }}">Patreon</a>
+    <a target="_blank" class="link" href="/linkpatreon">Link Patreon</a>
+    <a target="_blank" class="link" href="{{ cfg.WEBSITE["links"]["ss13-website"] }}">What is SS13?</a>
+  </div>
 {% endblock %}
