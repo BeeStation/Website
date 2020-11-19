@@ -39,14 +39,14 @@
   color: '150, 0, 0'
 
 - id: 'bs_clover'
-   aliases:
-     - 'clover'
-     - 'erp'
-     - 'hrp'
-     - 'secret'
-   name: 'Project Clover'
-   nickname: 'Clover'
-   host: 'clover.beestation13.com'
-   port: 0
-   open: false
-   color: '84, 123, 16'
+  aliases:
+    - 'clover'
+    - 'erp'
+    - 'hrp'
+    - 'secret'
+  name: 'Project Clover'
+  nickname: 'Clover'
+  host: 'clover.beestation13.com'
+  port: 0
+  open: false
+  color: '84, 123, 16'
