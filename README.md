@@ -1,3 +1,15 @@
 # BeeStation Website
 
-> **Developer's Note:** Currently you will not be able to run this on your local machine because you lack app/config/private.yml, a file that stores many of our private tokens or passwords. I may add support for running without it in the near future so it is easier to setup an instance of the site on your local machine for contributing. ***- qwerty***
+## Hosting
+
+In order to properly host, you must fill out `app/config/private.yml`
+
+**Development**
+
+For development hosting, simply run `wsgi.py`
+
+**Production**
+
+For production hosting, use `uwsgi` to serve `beesite_uwsgi.ini` to a socket file `beesite_uwsgi.sock`
+
+Use nginx with the configuration `beesite_nginx.conf` to read the socket file and serve it publicly
