@@ -1,0 +1,21 @@
+database:
+  game:
+    host: '127.0.0.1'
+    port: 3307
+    user: 'user'
+    pass: 'pass'
+    db: 'beestation'
+  site:
+    host: '127.0.0.1'
+    port: 3307
+    user: 'user'
+    pass: 'pass'
+    db: 'beesite'
+
+patreon:
+  client_id: 'xxx'
+  client_secret: 'xxx'
+  access_token: 'xxx'
+  refresh_token: 'xxx'
+
+api_passwd: 'changeme'
