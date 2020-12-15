@@ -55,7 +55,7 @@ class GameDB(DBClient):
 		return c.fetchall()
 
 	def get_bans(self, start, end, query):
-		c = self.query("SELECT id,bantime,round_id,role,expiration_time,reason,ckey,a_ckey,server_name,global_ban FROM SS13_ban WHERE hidden = 0 ORDER BY bantime DESC")
+		c = self.query("SELECT * FROM SS13_ban WHERE hidden = 0 ORDER BY bantime DESC")
 		db_bans = c.fetchall()
 		bans = []
 		i = 0
@@ -68,7 +68,8 @@ class GameDB(DBClient):
 				"user": ban["ckey"],
 				"banner": ban["a_ckey"],
 				"reason": fix_chars(ban["reason"]),
-				"unban_date":ban["expiration_time"],
+				"expire_date":ban["expiration_time"],
+				"unban_date":ban["unbanned_datetime"],
 				"job":[ban["role"]],
 				"server": ban["server_name"],
 				"global": bool(ban["global_ban"])
@@ -78,7 +79,7 @@ class GameDB(DBClient):
 				continue
 			if query and not (query in b["user"].lower() or (str(b["round_id"]) == query) and b["round_id"] != 0):
 				continue
-			if len(bans)>0 and b["type"] == "Job" and bans[-1]["type"] == "Job" and b["user"] == bans[-1]["user"] and b["banner"] == bans[-1]["banner"] and b["reason"] == bans[-1]["reason"] and b["unban_date"] == bans[-1]["unban_date"] and b["ban_date"] == bans[-1]["ban_date"] and b["round_id"] == bans[-1]["round_id"] and b["server"] == bans[-1]["server"] and b["global"] == bans[-1]["global"]:
+			if len(bans)>0 and b["type"] == "Job" and bans[-1]["type"] == "Job" and b["user"] == bans[-1]["user"] and b["banner"] == bans[-1]["banner"] and b["reason"] == bans[-1]["reason"] and b["expire_date"] == bans[-1]["expire_date"] and b["ban_date"] == bans[-1]["ban_date"] and b["round_id"] == bans[-1]["round_id"] and b["server"] == bans[-1]["server"] and b["global"] == bans[-1]["global"]:
 				bans[-1]["job"]+=b["job"]
 			else:
 				bans.append(b)
@@ -213,7 +214,7 @@ class Player():
 		return c.fetchone()["COUNT(*)"]
 
 	def get_bans(self):
-		c = game_db.query("SELECT id,bantime,round_id,role,expiration_time,reason,ckey,a_ckey FROM SS13_ban WHERE ckey = %s AND hidden = 0 ORDER BY bantime DESC", (self.ckey, ))
+		c = game_db.query("SELECT * FROM SS13_ban WHERE ckey = %s AND hidden = 0 ORDER BY bantime DESC", (self.ckey, ))
 		db_bans = c.fetchall()
 		bans = []
 		for ban in db_bans:
@@ -224,7 +225,11 @@ class Player():
 	            "ckey": ban["ckey"], "admin": ban["a_ckey"],
 	            "reason": fix_chars(ban["reason"]),
 	            "ban_date": int(ban["bantime"].timestamp()),
-	            "unban_date":int(ban["expiration_time"].timestamp()) if ban["expiration_time"] else None
+				"expire_date": int(ban["expiration_time"].timestamp()) if ban["expiration_time"] else None,
+	            "unban_date": int(ban["unbanned_datetime"].timestamp()) if ban["unbanned_datetime"] else None,
+				"server": ban["server_name"],
+				"global": bool(ban["global_ban"]),
+				"admin": ban["a_ckey"]
 	        }
 			if ban["role"] and not ban["role"] == "Server":
 				b["job"] = ban["role"].lower()
