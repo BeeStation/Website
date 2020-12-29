@@ -75,6 +75,14 @@ def fetch_server_status(id):
 
 	return d
 
+@cached(cache=TTLCache(ttl=5, maxsize=10))
+def fetch_server_players(id):
+	try:
+		d = topic_query_server(id, "playerlist")
+	except Exception as E:
+		return {"error": str(E)}
+
+	return d
 
 @cached(cache=TTLCache(ttl=10, maxsize=10))
 def fetch_server_totals():
