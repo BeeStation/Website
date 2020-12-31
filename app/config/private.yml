@@ -19,3 +19,5 @@ patreon:
   refresh_token: 'xxx'
 
 api_passwd: 'changeme'
+
+comms_key: 'set me to the game config comms_key'

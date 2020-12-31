@@ -128,3 +128,14 @@ def get_patreon_income():
 		
 	except:
 		return 0
+
+@cached(cache=TTLCache(ttl=10, maxsize=10))
+def fetch_server_icn(id):
+	try:
+		d = topic_query_server(id, "cross_cargo")
+		for order in d:
+			order["price"] = int(order["price"])
+	except Exception as E:
+		return {"error": str(E)}
+
+	return d
