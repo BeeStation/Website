@@ -34,6 +34,32 @@ def page_api_stats_totals():
 	except Exception as E:
 		return jsonify({"error": str(E)})
 
+@bp_api.route("/playerlist")
+def page_api_playerlist():
+	try:
+		d = {}
+
+		for server in cfg.SERVERS:
+			if server["open"]:
+				try:
+					d[server["id"]] = util.fetch_server_players(server["id"])
+				except Exception as E:
+					d[server["id"]] = {"error": str(E)}
+
+		return jsonify(d)
+
+	except Exception as E:
+		return jsonify({"error": str(E)})
+
+@bp_api.route("/playerlist/<string:id>")
+def page_api_playerlist_server(id):
+	if not util.get_server(id):
+		return abort(404)
+
+	try:
+		return jsonify(util.fetch_server_players(id))
+	except Exception as E:
+		return jsonify({"error": str(E)})
 
 @bp_api.route("/budget")
 def page_api_budget():
