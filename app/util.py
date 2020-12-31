@@ -129,7 +129,7 @@ def get_patreon_income():
 	except:
 		return 0
 
-@cached(cache=TTLCache(ttl=10, maxsize=10))
+@cached(cache=TTLCache(ttl=30, maxsize=10))
 def fetch_server_icn(id):
 	try:
 		d = topic_query_server(id, "cross_cargo")
