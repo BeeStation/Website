@@ -97,15 +97,7 @@ def page_api_bans():
 @bp_api.route("/cross_cargo")
 def page_api_cross_cargo():
 	try:
-		d = {}
-
-		for server in cfg.SERVERS:
-			if server["open"]:
-				try:
-					d[server["id"]] = util.fetch_server_icn(server["id"])
-				except Exception as E:
-					d[server["id"]] = {"error": str(E)}
-
+		d = util.fetch_icn_all()
 		return jsonify(d)
 
 	except Exception as E:
@@ -120,7 +112,7 @@ def page_api_cross_cargo_purchase():
 			if icn_id == "":
 				return jsonify({"error": "invalid id"})
 			purchaser = request.args.get('purchaser', type=str, default="SS13")
-			server_list = page_api_cross_cargo()
+			server_list = util.fetch_icn_all()
 			server_id = None
 			for server in server_list:
 				if server[icn_id] is not None:

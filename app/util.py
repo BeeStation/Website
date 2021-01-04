@@ -129,8 +129,7 @@ def get_patreon_income():
 	except:
 		return 0
 
-@cached(cache=TTLCache(ttl=30, maxsize=10))
-def fetch_server_icn(id):
+def fetch_icn_server(id):
 	try:
 		d = topic_query_server(id, "cross_cargo")
 		for order in d:
@@ -139,3 +138,20 @@ def fetch_server_icn(id):
 		return {"error": str(E)}
 
 	return d
+
+@cached(cache=TTLCache(ttl=30, maxsize=10))
+def fetch_icn_all():
+	try:
+		d = {}
+
+		for server in cfg.SERVERS:
+			if server["open"]:
+				try:
+					d[server["id"]] = fetch_server_icn(server["id"])
+				except Exception as E:
+					d[server["id"]] = {"error": str(E)}
+
+		return d
+
+	except Exception as E:
+		return {"error": str(E)}
