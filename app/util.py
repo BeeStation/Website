@@ -147,7 +147,7 @@ def fetch_icn_all():
 		for server in cfg.SERVERS:
 			if server["open"]:
 				try:
-					d[server["id"]] = fetch_server_icn(server["id"])
+					d[server["id"]] = fetch_icn_server(server["id"])
 				except Exception as E:
 					d[server["id"]] = {"error": str(E)}
 
