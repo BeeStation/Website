@@ -2,7 +2,7 @@ version: '3'
 
 services: 
   web:
-    build: .
+    image: crossedfall/beesite # For testing
     volumes:
       - ./config:/beesite/app/config:ro
     networks:
