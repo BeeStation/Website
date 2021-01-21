@@ -20,14 +20,18 @@ else
     git fetch --depth=5 -q
     git config core.sparseCheckout true
     echo "src/app/config" >> .git/info/sparse-checkout
+    echo "server-conf/nginx.conf" >> .git/info/sparse-checkout
     git pull -q origin master
-    mv ./src/app/config ./config
-    rm -rf ./src .git
+    mkdir ./config
+    mv ./src/app/config/ ./config/site-settings
+    mv ./server-conf/nginx.conf ./config/nginx.conf
+    rm -rf ./src ./server-conf ./.git
     echo -e "\e[32mConfig loaded\e[0m\n"
 fi
 
+
 # Build/update the docker image
 echo -e "\e[31mBuilding docker environment\e[0m\n"
-docker-compose up --quiet-pull --force-recreate --build --no-start
+docker-compose up --force-recreate --build --no-start
 echo -e "====================================="
 echo -e "Ready! Use \e[41mdocker-compose up\e[0m to start the service with logging. Use \e[41mdocker-compose up -d\e[0m if you want it to run in the background."

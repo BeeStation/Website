@@ -2,20 +2,22 @@ version: '3'
 
 services: 
   web:
+    container_name: website
     image: crossedfall/beesite # For testing
     volumes:
-      - ./config:/beesite/app/config:ro
+      - ./config/site-settings:/beesite/app/config:ro
     networks:
       main:
         aliases:
           - web
     
   nginx:
+    container_name: reverse-proxy
     image: nginx
     ports:
       - "8080:80"
     volumes:
-      - ./server-conf/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
     links:
       - web:web
     depends_on: 
