@@ -13,7 +13,7 @@ services:
     
   nginx:
     container_name: reverse-proxy
-    image: nginx
+    image: nginx:stable-alpine
     ports:
       - "8080:80"
     volumes:

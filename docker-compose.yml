@@ -9,7 +9,7 @@ services:
           - web
     
   nginx:
-    image: nginx
+    image: nginx:stable-alpine
     ports:
       - "8080:80"
     volumes:
