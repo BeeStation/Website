@@ -21,7 +21,7 @@ else
     
     cd $TMPDIR
     git init -q
-    git remote add origin https://github.com/crossedfall/Website
+    git remote add origin https://github.com/BeeStation/Website
     git fetch --depth=5 -q
     git config core.sparseCheckout true
     echo "src/app/config" >> .git/info/sparse-checkout

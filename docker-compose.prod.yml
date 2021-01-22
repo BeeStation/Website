@@ -3,7 +3,7 @@ version: '3'
 services: 
   web:
     container_name: website
-    image: crossedfall/beesite # For testing
+    image: beestation/beesite
     volumes:
       - ./config/site-settings:/beesite/app/config:ro
     networks:
