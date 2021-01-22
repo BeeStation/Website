@@ -7,7 +7,7 @@ done
 
 # Download the latest compose file if needed
 if [ ! -f "./docker-compose.prod.yml" ]; then
-    wget -q -O docker-compose.yml "https://raw.githubusercontent.com/Crossedfall/Website/master/docker-compose.prod.yml"
+    wget -q -O docker-compose.yml "https://raw.githubusercontent.com/BeeStation/Website/master/docker-compose.prod.yml"
 fi
 
 # Check if config exists. If it doesn't, checkout the config from upstream
