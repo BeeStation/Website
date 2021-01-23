@@ -23,4 +23,4 @@ def page_join(id):
 
 @bp_redirects.route("/forum")
 def page_forum():
-	return redirect("https://bing.com")
+	return redirect("https://forums.beestation13.com")
