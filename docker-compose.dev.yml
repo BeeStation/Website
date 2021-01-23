@@ -6,7 +6,7 @@ services:
     volumes: 
       - ./src:/beesite:ro
     environment:
-      DEBUG: 'true'
+      DEBUG: 'True'
     networks:
       main:
         aliases:
