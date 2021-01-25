@@ -7,9 +7,15 @@ from flask import session
 
 from flask_cors import CORS
 
+from os import environ
 
 app = Flask(__name__, static_url_path=cfg.WEBSITE["static-url-path"])
 
+if 'DEBUG' in environ:
+	from werkzeug.debug import DebuggedApplication
+	app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
+
+	app.debug = True
 
 app.url_map.strict_slashes = False
 

@@ -1,0 +1,32 @@
+version: '3'
+
+services: 
+  web:
+    container_name: beestation_website_app
+    image: beestation/beesite
+    volumes:
+      - ./config/site-settings:/beesite/app/config:ro
+    networks:
+      main:
+        aliases:
+          - web
+    
+  nginx:
+    container_name: beestation_website_proxy
+    image: nginx:stable-alpine
+    ports:
+      - "8080:80" #Change this according to your needs
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
+    links:
+      - web:web
+    depends_on: 
+      - web
+    networks:
+      main:
+        aliases:
+          - nginx
+
+networks:
+  main:
+    name: beestation_website
