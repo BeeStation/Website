@@ -47,6 +47,6 @@
   name: 'Project Clover'
   nickname: 'Clover'
   host: 'clover.beestation13.com'
-  port: 0
+  port: 8888
   open: false
   color: '84, 123, 16'
