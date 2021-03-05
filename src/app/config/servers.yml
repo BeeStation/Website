@@ -48,5 +48,5 @@
   nickname: 'Clover'
   host: 'clover.beestation13.com'
   port: 8888
-  open: false
+  open: true
   color: '84, 123, 16'
