@@ -7,6 +7,10 @@ services:
       - ./src:/beesite:ro
     environment:
       DEBUG: 'True'
+      APM: 'False' #Set to True to enable APM logging
+      APM_URL: 'http://0.0.0.0:8200'
+      APM_DEBUG: 'True'
+      APM_TOKEN: '' #Leave empty if you aren't using a token
     networks:
       main:
         aliases:
