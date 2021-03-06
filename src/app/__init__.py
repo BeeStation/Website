@@ -20,22 +20,17 @@ if 'DEBUG' in environ and environ['DEBUG'] == "True":
 if 'APM' in environ and environ['APM'] == "True":
 	from elasticapm.contrib.flask import ElasticAPM
 
+	apm_url = "http://0.0.0.0:8200"
+	apm_debug = False
+	apm_token = ''
+
 	# Check for APM envrion variables
 	if 'APM_URL' in environ:
 		apm_url = environ['APM_URL']
-	else:
-		apm_url = "http://0.0.0.0:8200"
-
 	if 'APM_DEBUG' in environ:
 		apm_debug = environ['APM_DEBUG']
-	else:
-		apm_debug = False
-
 	if 'APM_TOKEN' in environ:
 		apm_token = environ['APM_TOKEN']
-	else:
-		apm_token = ''
-
 
 	app.config['ELASTIC_APM'] = {
 		# Set required service name. Allowed characters:
