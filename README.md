@@ -14,7 +14,7 @@ This will build the docker image and start hosting on port `8080` by default. Us
 
 #### Production
 
-Create a new directory on your target system and run `curl -L deploy-site.beestation13.buzz | bash` within that directory. Doing so will download the necessary files and prepare the docker environment.
+Create a new directory on your target system and run `curl -L deploy.beestation13.buzz/website | bash` within that directory. Doing so will download the necessary files and prepare the docker environment.
 
 See `setup.sh` for the actual installation steps.
 
