@@ -85,9 +85,6 @@ app.register_blueprint(bp_patreon)
 from app.modules.redirects.controllers import bp_redirects
 app.register_blueprint(bp_redirects)
 
-from app.modules.rules.controllers import bp_rules
-app.register_blueprint(bp_rules)
-
 from app.modules.stats.controllers import bp_stats
 app.register_blueprint(bp_stats)
 

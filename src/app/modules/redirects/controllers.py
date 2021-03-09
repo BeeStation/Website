@@ -4,13 +4,9 @@ from app import util
 
 from flask import Blueprint
 from flask import redirect
+from flask import request
 
 bp_redirects = Blueprint('redirects', __name__)
-
-@bp_redirects.route("/rules/rp") # Temporary as I get crossed to update the rules urls everywhere
-def page_rules_tempredirect():
-	return redirect("/rules?server=bs_sage")
-
 
 @bp_redirects.route("/join/<string:id>")
 def page_join(id):
@@ -19,6 +15,17 @@ def page_join(id):
 		return redirect("byond://{}:{}".format(server["host"],server["port"]))
 	except Exception as E:
 		pass
+
+
+@bp_redirects.route("/rules")
+def page_rules():
+	server_id = request.args.get('server', type=str, default=util.get_server_default()["id"])
+	server = util.get_server(server_id)
+
+	if not server:
+		return abort(404)
+
+	return redirect(server["rules_url"])
 
 
 @bp_redirects.route("/forum")
