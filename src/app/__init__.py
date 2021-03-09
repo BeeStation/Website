@@ -11,13 +11,13 @@ from os import environ
 
 app = Flask(__name__, static_url_path=cfg.WEBSITE["static-url-path"])
 
-if 'DEBUG' in environ and environ['DEBUG'] == "True":
+if environ.get("DEBUG") == "True":
 	from werkzeug.debug import DebuggedApplication
 	app.wsgi_app = DebuggedApplication(app.wsgi_app, True)
 
 	app.debug = True
 
-if 'APM' in environ and environ['APM'] == "True":
+if environ.get("APM") == "True":
 	from elasticapm.contrib.flask import ElasticAPM
 
 	apm_url = "http://0.0.0.0:8200"
@@ -44,7 +44,7 @@ if 'APM' in environ and environ['APM'] == "True":
 		'SERVER_URL': apm_url,
 
 		'DEBUG': apm_debug,
-		}
+	}
 
 	apm = ElasticAPM(app)
 
