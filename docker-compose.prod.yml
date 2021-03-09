@@ -6,6 +6,11 @@ services:
     image: beestation/beesite
     volumes:
       - ./config/site-settings:/beesite/app/config:ro
+    environment:
+      APM: 'False' #Set to True to enable APM logging
+      APM_URL: 'http://0.0.0.0:8200'
+      APM_DEBUG: 'False'
+      APM_TOKEN: '' #Leave empty if you aren't using a token
     networks:
       main:
         aliases:
