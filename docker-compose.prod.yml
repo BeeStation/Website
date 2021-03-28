@@ -4,6 +4,8 @@ services:
   web:
     container_name: beestation_website_app
     image: beestation/beesite
+    ports:
+      - "8080:8080"
     volumes:
       - ./config/site-settings:/beesite/app/config:ro
     environment:
@@ -11,27 +13,8 @@ services:
       APM_URL: 'http://0.0.0.0:8200'
       APM_DEBUG: 'False'
       APM_TOKEN: '' #Leave empty if you aren't using a token
-    networks:
-      main:
-        aliases:
-          - web
-    
-  nginx:
-    container_name: beestation_website_proxy
-    image: nginx:stable-alpine
-    ports:
-      - "8080:80" #Change this according to your needs
-    volumes:
-      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
-    links:
-      - web:web
-    depends_on: 
-      - web
-    networks:
-      main:
-        aliases:
-          - nginx
-
-networks:
-  main:
-    name: beestation_website
+      UWSGI_USER: 'www-data'
+      UWSGI_GROUP: 'www-data'
+      UWSGI_THREADS: 10
+      UWSGI_PROCESSES: 2
+      UWSGI_OFFLOAD_THREADS: 10
