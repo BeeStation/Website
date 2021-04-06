@@ -25,12 +25,10 @@ else
     git fetch --depth=5 -q
     git config core.sparseCheckout true
     echo "src/app/config" >> .git/info/sparse-checkout
-    echo "server-conf/nginx.conf" >> .git/info/sparse-checkout
     git pull -q origin master
 
     mkdir ./config
     mv ./src/app/config/ ./config/site-settings
-    mv ./server-conf/nginx.conf ./config/nginx.conf
     mv ./config $ACTIVE_DIR/config
     cd $ACTIVE_DIR
     rm -rf $TMPDIR
