@@ -280,5 +280,5 @@ class Player():
 
 
 def fix_chars(s):
-	return bytes(s, "latin1").replace(b'\x92',b"'").replace(b"\x93",b'"').replace(b"\x94",b'"').decode("utf8", "ignore").replace("&#39;", "'")
+	return bytes(s, "utf8").replace(b'\x92',b"'").replace(b"\x93",b'"').replace(b"\x94",b'"').decode("utf8", "ignore").replace("&#39;", "'")
 
