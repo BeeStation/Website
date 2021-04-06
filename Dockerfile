@@ -23,6 +23,11 @@ COPY server-conf/beesite_uwsgi.ini /etc/uwsgi/uwsgi.ini
 WORKDIR /beesite
 COPY /src /beesite
 
-EXPOSE 8000
+RUN gzip --keep --best --force --recursive /beesite/app/static/ && \
+    chown -R www-data:www-data /beesite
+
+USER www-data:www-data
+
+EXPOSE 8080
 
 CMD ["/usr/local/bin/uwsgi", "--ini", "/etc/uwsgi/uwsgi.ini"]
