@@ -21,7 +21,8 @@ class DBClient:
 		self.port = port
 
 	def connect(self):
-		self.conn = MySQLdb.connect(user=self.user,passwd=self.password,host=self.host,db=self.dbname,port=self.port,cursorclass=MySQLdb.cursors.DictCursor)
+		self.conn = MySQLdb.connect(user=self.user,passwd=self.password,host=self.host,db=self.dbname,port=self.port,cursorclass=MySQLdb.cursors.DictCursor,
+									charset='utf8', use_unicode=True)
 		self.conn.autocommit(True)
 
 	def query(self, sql, placeholders=None):
