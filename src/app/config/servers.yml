@@ -40,18 +40,3 @@
   open: true
   color: '150, 0, 0'
   rules_url: 'https://nsv.beestation13.com/wiki/Rules'
-
-- id: 'bs_clover'
-  aliases:
-    - 'clover'
-    - 'erp'
-    - 'hrp'
-    - 'secret'
-  name: 'Project Clover'
-  nickname: 'Clover'
-  host: 'clover.beestation13.com'
-  port: 8888
-  open: true
-  color: '84, 123, 16'
-  rules_url: 'https://wiki.beestation13.com/view/Rules'
-
