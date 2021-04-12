@@ -1,21 +1,21 @@
 {% extends "layout.html" %}
-{% block title %}Book - {{book["title"]}}{% endblock %}
+{% block title %}Book - {{ book.title }}{% endblock %}
 {% block active %}library{% endblock %}
 
 {% block head %}
-  <meta property="og:title" content="BeeStation - Library - {{book["title"]}}" />
+  <meta property="og:title" content="BeeStation - Library - {{ book.title }}" />
 {% endblock %}
 
 {% block content %}
 
-<div class="post-title"><a href="/library">Library</a> / <a href="/library/{{book["id"]}}">{{book["title"]}}</a></div><br><br>
+<div class="post-title"><a href="/library">Library</a> / <a href="/library/{{ book.id }}">{{ book.title }}</a></div><br><br>
 
 
-<div class="small-post" onclick="location.href = '/library/{{book["id"]}}'">
-  <div class="small-post-title">{{book["title"]}}</div><div class="small-post-author">{{book["author"]}}</div>
-  <div class="small-post-stats"><div class="small-post-stat"><i class="fas fa-book"></i> {{book["category"]}}</div><div class="small-post-stat"><i class="fas fa-user"></i> {{ book["ckey"] }}</div></div>
+<div class="small-post" onclick="location.href = '/library/{{ book.id }}'">
+  <div class="small-post-title">{{ book.title }}</div><div class="small-post-author">{{ book.author }}</div>
+  <div class="small-post-stats"><div class="small-post-stat"><i class="fas fa-book"></i> {{ book.category }}</div><div class="small-post-stat"><i class="fas fa-user"></i> {{ book.ckey }}</div></div>
 </div>
 
-<p class="book-content">{{book["content"]|safe if book["content"] else "<i>Book is blank...</i>"|safe}}</p>
+<p class="book-content">{{ book.content.replace("<font", "<font class=\"book-content\" color=") | safe if book.content else "<i>Book is blank...</i>" | safe }}</p>
 
 {% endblock %}

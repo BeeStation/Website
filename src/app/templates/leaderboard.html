@@ -11,16 +11,7 @@
   <div class="post-title"><a href="/leaderboard">Leaderboard</a></div>
   {% for player in leaderboard %}
     <div class="small-post">
-        {% if sort == "metacoins" %}
-          <div class="small-post-title">{{loop.index}}. {{player["ckey"]}}</div><div class="small-post-author">{{player["metacoins"]}} <i class="fas fa-coins"></i>
-        {% elif sort == "playtime" %}
-          <div class="small-post-title">{{loop.index}}. {{player["ckey"]}}</div><div class="small-post-author">{{player["sum(minutes)"]//60}} hours
-        {% elif sort == "deaths" %}
-          <div class="small-post-title">{{loop.index}}. {{player["byondkey"]}}</div><div class="small-post-author">{{player["count(*)"]}} deaths
-        {% elif sort == "connections" %}
-          <div class="small-post-title">{{loop.index}}. {{player["ckey"]}}</div><div class="small-post-author">{{player["count(*)"]}} connections
-        {% endif %}
-      </div>
+      <div class="small-post-title">{{ loop.index }}. {{ player.ckey }}</div><div class="small-post-author">{{ player.metacoins }} <i class="fas fa-coins"></i></div>
     </div>
   {% endfor %}
 

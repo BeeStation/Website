@@ -29,10 +29,10 @@ def page_api_stats():
 
 @bp_api.route("/stats/totals")
 def page_api_stats_totals():
-	try:
-		return jsonify(util.fetch_server_totals())
-	except Exception as E:
-		return jsonify({"error": str(E)})
+	#try:
+	return jsonify(util.fetch_server_totals())
+	#except Exception as E:
+	#	return jsonify({"error": str(E)})
 
 @bp_api.route("/playerlist")
 def page_api_playerlist():
@@ -98,7 +98,8 @@ def page_api_servers():
 def page_api_get_linked_patreons():
 	if request.args.get("pass") == cfg.PRIVATE["api_passwd"]:
 		try:
-			return jsonify(db.site_db.query("SELECT patreon_id, ckey FROM patreon_link").fetchall())
+			links = db.db_session.query(db.Patreon).all()
+			return jsonify([{"ckey": link.ckey, "patreon_id": link.patreon_id} for link in links])
 		except Exception as E:
 			return jsonify({"error": str(E)})
 	else:

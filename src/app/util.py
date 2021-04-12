@@ -87,9 +87,9 @@ def fetch_server_players(id):
 @cached(cache=TTLCache(ttl=10, maxsize=10))
 def fetch_server_totals():
 	d = {}
-	d["total_players"] = db.game_db.query("SELECT COUNT(*) FROM SS13_player").fetchone()["COUNT(*)"]
-	d["total_rounds"] = db.game_db.query("SELECT COUNT(*) FROM SS13_round").fetchone()["COUNT(*)"]
-	d["total_connections"] = db.game_db.query("SELECT COUNT(*) FROM SS13_connection_log").fetchone()["COUNT(*)"]
+	d["total_players"] = db.db_session.query(db.Player).count()
+	d["total_rounds"] = db.db_session.query(db.Round).count()
+	d["total_connections"] = db.db_session.query(db.Connection).count()
 
 	return d
 

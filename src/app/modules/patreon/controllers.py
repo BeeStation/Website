@@ -36,7 +36,7 @@ def page_patreon_oauth():
 			if not player:
 				return redirect("/linkpatreon?error=invalidckey")
 			
-			db.site_db.link_patreon(ckey, user_id)
+			db.Patreon.link(ckey, user_id)
 
 			return redirect("/linkpatreon?success=true")
 
