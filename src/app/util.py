@@ -114,23 +114,12 @@ def make_unique(original_list):
 			unique_list.append(i)
 	return unique_list
 
-
-@cached(cache=TTLCache(ttl=86400, maxsize=1))
-def get_exchange_rates():
-	return requests.get("https://api.exchangeratesapi.io/latest?base=USD").json()["rates"]
-
-
 @cached(cache=TTLCache(ttl=30, maxsize=1))
 def get_patreon_income():
 	try:
 		data = requests.get("https://www.patreon.com/api/campaigns/1671674", timeout=2).json()["data"]["attributes"]
 
-		pledge_sum = data["pledge_sum"]
-		pledge_sum_currency = data["pledge_sum_currency"]
-
-		if pledge_sum_currency != "USD": # thanks a lot patreon your api is really great guys keep at it
-			exchange_ranges = get_exchange_rates() # god this is so scuffed I hate it
-			pledge_sum = pledge_sum / exchange_ranges[pledge_sum_currency]
+		pledge_sum = data["campaign_pledge_sum"]
 		
 		return pledge_sum
 		
