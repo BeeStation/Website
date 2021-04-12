@@ -29,10 +29,10 @@ def page_api_stats():
 
 @bp_api.route("/stats/totals")
 def page_api_stats_totals():
-	#try:
-	return jsonify(util.fetch_server_totals())
-	#except Exception as E:
-	#	return jsonify({"error": str(E)})
+	try:
+		return jsonify(util.fetch_server_totals())
+	except Exception as E:
+		return jsonify({"error": str(E)})
 
 @bp_api.route("/playerlist")
 def page_api_playerlist():
