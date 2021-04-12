@@ -29,6 +29,19 @@ def page_bans():
 	buttons = [page > 1, page < length / cfg.WEBSITE["items-per-page"]]
 
 	if json_format:
-		return jsonify(bans)
+		return jsonify([
+			{
+				"id": ban.id,
+				"bantime": str(ban.bantime),
+				"round_id": ban.round_id,
+				"expiration_time": str(ban.expiration_time) if ban.expiration_time else None,
+				"reason": ban.reason,
+				"ckey": ban.ckey,
+				"a_ckey": ban.a_ckey,
+				"unbanned_datetime": str(ban.unbanned_datetime) if ban.unbanned_datetime else None,
+				"unbanned_ckey": ban.unbanned_ckey,
+				"roles": ban.roles.split(",")			
+			} for ban in displayed_bans
+		])
 
 	return render_template("bans.html", bans=displayed_bans, buttons=buttons, page=page, search_query=search_query, pages=math.ceil(length / cfg.WEBSITE["items-per-page"]))
