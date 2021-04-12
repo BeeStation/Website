@@ -16,7 +16,7 @@ db_session = sqlalchemy_ext.session
 
 class Player(sqlalchemy_ext.Model):
 	__bind_key__ = 'game'
-	__tablename__ = 'ss13_player'
+	__tablename__ = 'SS13_player'
 
 	ckey				= Column('ckey',				String(32), primary_key=True)
 	byond_key			= Column('byond_key',			String(32))
@@ -95,7 +95,7 @@ class Player(sqlalchemy_ext.Model):
 
 class Round(sqlalchemy_ext.Model):
 	__bind_key__ = 'game'
-	__tablename__ = 'ss13_round'
+	__tablename__ = 'SS13_round'
 
 	id					= Column('id',					Integer(), primary_key=True)
 	initialize_datetime	= Column('initialize_datetime',	DateTime())
@@ -132,7 +132,7 @@ class Round(sqlalchemy_ext.Model):
 
 class Death(sqlalchemy_ext.Model):
 	__bind_key__ = 'game'
-	__tablename__ = 'ss13_death'
+	__tablename__ = 'SS13_death'
 
 	id				= Column('id',			Integer(), primary_key=True)
 	tod				= Column('tod',			DateTime())
@@ -144,7 +144,7 @@ class Death(sqlalchemy_ext.Model):
 
 class Connection(sqlalchemy_ext.Model):
 	__bind_key__ = 'game'
-	__tablename__ = "ss13_connection_log"
+	__tablename__ = "SS13_connection_log"
 
 	id				= Column('id',			Integer(), primary_key=True)
 	datetime		= Column('datetime',	DateTime())
@@ -158,7 +158,7 @@ class Connection(sqlalchemy_ext.Model):
 
 class Book(sqlalchemy_ext.Model):
 	__bind_key__ = 'game'
-	__tablename__ = "ss13_library"
+	__tablename__ = "SS13_library"
 
 	id					= Column('id',					Integer(), primary_key=True)
 	author				= Column('author',				String(32))
@@ -179,7 +179,7 @@ class Book(sqlalchemy_ext.Model):
 
 class Ban(sqlalchemy_ext.Model):
 	__bind_key__ = 'game'
-	__tablename__ = 'ss13_ban'
+	__tablename__ = 'SS13_ban'
 
 	id					= Column('id',					Integer(), primary_key=True)
 	bantime				= Column('bantime',				DateTime())
@@ -243,7 +243,7 @@ def query_grouped_bans(order_by=Ban.id.desc(), search_query=None):
 
 class RoleTime(sqlalchemy_ext.Model):
 	__bind_key__ = 'game'
-	__tablename__ = 'ss13_role_time'
+	__tablename__ = 'SS13_role_time'
 
 	ckey		= Column('ckey',		String(32), primary_key=True)
 	job			= Column('job',			String(128), primary_key=True)
