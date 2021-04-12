@@ -40,7 +40,9 @@ def page_bans():
 				"a_ckey": ban.a_ckey,
 				"unbanned_datetime": str(ban.unbanned_datetime) if ban.unbanned_datetime else None,
 				"unbanned_ckey": ban.unbanned_ckey,
-				"roles": ban.roles.split(",")			
+				"roles": ban.roles.split(","),
+				"server_name": ban.server_name,
+				"global_ban": ban.global_ban
 			} for ban in displayed_bans
 		])
 
