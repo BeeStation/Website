@@ -27,7 +27,7 @@
   <div class="ban-reason">{{ ban.reason }}</div><br>
   <div style="width:100%;">
     <div style="width:275px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Ban Date:</b> {{ ban.bantime.strftime("%Y-%m-%d %H:%M") }}</div>
-    <div style="width:295px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Expire Date:</b> {{ ban.expiration_time.strftime("%Y-%m-%d %H:%M") if banexpiration_time else "9999-01-01 12:00" }}</div>
+    <div style="width:295px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Expire Date:</b> {{ ban.expiration_time.strftime("%Y-%m-%d %H:%M") if ban.expiration_time else "9999-01-01 12:00" }}</div>
     <div style="width:150px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Round:</b> {{ ban.round_id or "Error!" }}</div>
     <div style="width:150px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Server:</b> {% if ban.global_ban %}All{% else %}{{ util.get_server(ban.server_name)["nickname"] }}{% endif %}</div>
     <div style="width:250px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Admin:</b> {{ ban.a_ckey }}</div>
