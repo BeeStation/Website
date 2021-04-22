@@ -24,7 +24,7 @@ def page_bans():
 	
 	length = query.count()
 
-	displayed_bans = query.offset((page-1)*cfg.WEBSITE["items-per-page"]).limit(page*cfg.WEBSITE["items-per-page"])
+	displayed_bans = query.offset((page-1)*cfg.WEBSITE["items-per-page"]).limit(cfg.WEBSITE["items-per-page"])
 
 	buttons = [page > 1, page < length / cfg.WEBSITE["items-per-page"]]
 
