@@ -31,3 +31,7 @@ def page_rules():
 @bp_redirects.route("/forum")
 def page_forum():
 	return redirect("https://forums.beestation13.com")
+
+@bp_redirects.route("/uptime")
+def page_uptime():
+	return redirect("https://status.beestation13.com")
