@@ -1,9 +1,7 @@
 from app import cfg
-from app import db
 from app import util
 
-from flask import Blueprint
-from flask import render_template
+from flask import Blueprint, render_template
 
 bp_stats = Blueprint('stats', __name__)
 

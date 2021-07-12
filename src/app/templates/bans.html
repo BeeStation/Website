@@ -4,37 +4,69 @@
 
 {% block head %}
   <meta property="og:title" content="BeeStation - Bans" />
+  <script src="/static/js/bans.js" type="application/javascript"></script>
 {% endblock %}
 
 {% block content %}
 
 <div style="display:flex;flex-direction:row;justify-content:center;align-items:stretch;">
   <div style="flex-basis:33.33%;"></div>
-  <div style="text-align:center;flex-basis:33.33%;">{% if buttons[0] %}<a href="/bans?page={{ page-1 }}{% if search_query %}&q={{ search_query }}{% endif %}" class="button"><i class="fas fa-arrow-left"></i></a>{% endif %}{% if pages > 1 %}<span style="text-align: center;margin:0px 20px; font-size:18px;">page {{ page }} of {{ pages }}</span>{% endif %}{% if buttons[1] %}<a href="/bans?page={{ page+1 }}{% if search_query %}&q={{ search_query }}{% endif %}" class="button"><i class="fas fa-arrow-right"></i></a>{% endif %}</div>
-  <form style="text-align:right;flex-basis:33.33%;"><input class="form-input" name="q" type="text" placeholder="Search ckey..." {% if search_query %}value="{{ search_query }}"{% endif %}></form>
-</div>
 
+  <div style="text-align:center;flex-basis:33.33%;">
+    <a v-on:click="change_page(-1)" class="button"><i class="fas fa-arrow-left"></i></a>
 
-<br>
+    <span style="text-align: center;margin:0px 20px; font-size:18px;">
+      <span v-cloak>
+        page ${ loaded_page || page } of ${ (pages !== null) ? pages : "..." }
+      </span>
+    </span>
 
-{% if not bans %}
-  <div style="text-align:center;" class="ban-header">No Bans Found</div>
-{% endif %}
-
-{% for ban in bans %}
-<div class="ban">
-  <div class="ban-header">{{ ban.ckey }}</div>
-  <div class="ban-reason">{{ ban.reason }}</div><br>
-  <div style="width:100%;">
-    <div style="width:275px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Ban Date:</b> {{ ban.bantime.strftime("%Y-%m-%d %H:%M") }}</div>
-    <div style="width:295px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Expire Date:</b> {{ ban.expiration_time.strftime("%Y-%m-%d %H:%M") if ban.expiration_time else "9999-01-01 12:00" }}</div>
-    <div style="width:150px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Round:</b> {{ ban.round_id or "Error!" }}</div>
-    <div style="width:150px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Server:</b> {% if ban.global_ban %}All{% else %}{{ util.get_server(ban.server_name)["nickname"] }}{% endif %}</div>
-    <div style="width:250px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Admin:</b> {{ ban.a_ckey }}</div>
+    <a v-on:click="change_page(1)" class="button"><i class="fas fa-arrow-right"></i></a>
   </div>
-  <div style="width:100%;" class="ban-reason" style="margin-top:20px;"><b class="ban-reason-title">Role:</b> {{ ", ".join(ban.roles.split(",")) }}</div>
+
+  <div style="text-align:right;flex-basis:33.33%;">
+    <input class="form-input" type="text" placeholder="Search ckey..." @keydown.enter="search_bans(event.target.value)">
+  </div>
 </div>
-{% endfor %}
+
 <br>
-<div style="text-align:center">{% if buttons[0] %}<a href="/bans?page={{ page-1 }}{% if search_query %}&q={{ search_query }}{% endif %}" class="button"><i class="fas fa-arrow-left"></i></a>{% endif %}{% if pages > 1 %}<span style="text-align: center;margin:0px 20px; font-size:18px;">page {{ page }} of {{ pages }}</span>{% endif %}{% if buttons[1] %}<a href="/bans?page={{ page+1 }}{% if search_query %}&q={{ search_query }}{% endif %}" class="button"><i class="fas fa-arrow-right"></i></a>{% endif %}</div>
+
+<div v-cloak style="text-align:center;" class="ban-header">
+  <span v-if="!bans.length && loaded">
+    No Bans Found
+  </span>
+
+  <div v-if="!loaded" class="progress-bar-indeterminate" style="width:50%; margin: 20px auto;">
+    <div class="progress-bar-indeterminate-value"></div>
+  </div>
+</div>
+
+<div v-cloak v-if="bans.length" v-for="ban in bans" class="ban">
+  <div class="ban-header">${ ban.ckey }</div>
+  <div class="ban-reason">${ ban.reason }</div><br>
+  <div style="width:100%;">
+    <div style="width:295px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Ban Date:</b> ${ render_dtstring(ban.bantime) }</div>
+    <div style="width:315px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Expire Date:</b> ${ ban.expiration_time ? render_dtstring(ban.expiration_time)  : "Never" }</div>
+    <div style="width:150px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Round:</b> ${ ban.round_id || "Error!" }</div>
+    <div style="width:175px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Server:</b> ${ ban.global_ban ? "All" : ban.server_name }</div>
+    <div style="width:250px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Admin:</b> ${ ban.a_ckey }</div>
+  </div>
+  <div style="width:100%;" class="ban-reason" style="margin-top:20px;"><b class="ban-reason-title">Role:</b> ${ ban.roles.join(", ") }</div>
+</div>
+
+<br>
+
+
+<div v-if="bans.length" style="text-align:center;">
+  <a v-on:click="change_page(-1)" class="button"><i class="fas fa-arrow-left"></i></a>
+
+  <span style="text-align: center;margin:0px 20px; font-size:18px;">
+    <span v-cloak>
+      page ${ loaded_page || page } of ${ (pages !== null) ? pages : "..." }
+    </span>
+  </span>
+
+  <a v-on:click="change_page(1)" class="button"><i class="fas fa-arrow-right"></i></a>
+</div>
+
 {% endblock %}

@@ -1,21 +1,47 @@
 {% extends "layout.html" %}
-{% block title %}Book - {{ book.title }}{% endblock %}
+{% block title %}Book - {{ book_id }}{% endblock %}
 {% block active %}library{% endblock %}
 
 {% block head %}
-  <meta property="og:title" content="BeeStation - Library - {{ book.title }}" />
+  <meta property="og:title" content="BeeStation - Library - {{ book_id }}" />
+
+  <script>
+    var book_id = {{ book_id }};
+  </script>
+
+  <script src="/static/js/book.js" type="application/javascript"></script>
 {% endblock %}
 
 {% block content %}
 
-<div class="post-title"><a href="/library">Library</a> / <a href="/library/{{ book.id }}">{{ book.title }}</a></div><br><br>
+<div class="post-title"><a href="/library">Library</a> / <a href="/library/{{ book_id }}">{{ book_id }}</a></div><br><br>
 
-
-<div class="small-post" onclick="location.href = '/library/{{ book.id }}'">
-  <div class="small-post-title">{{ book.title }}</div><div class="small-post-author">{{ book.author }}</div>
-  <div class="small-post-stats"><div class="small-post-stat"><i class="fas fa-book"></i> {{ book.category }}</div><div class="small-post-stat"><i class="fas fa-user"></i> {{ book.ckey }}</div></div>
+<div style="text-align:center;" class="ban-header">
+  <div v-if="!book" class="progress-bar-indeterminate" style="width:50%; margin: 20px auto;">
+    <div class="progress-bar-indeterminate-value"></div>
+  </div>
 </div>
 
-<p class="book-content">{{ book.content.replace("<font", "<font class=\"book-content\" color=") | safe if book.content else "<i>Book is blank...</i>" | safe }}</p>
+<div v-cloak v-if="book">
+  <div class="small-post">
+    <div class="small-post-title">${ book.title }</div><div class="small-post-author">${ book.author }</div>
+    <div class="small-post-stats">
+      <div class="small-post-stat">
+        <i class="fas fa-book"></i> ${ book.category }
+      </div>
+      
+      <div class="small-post-stat">
+        <i class="fas fa-user"></i> ${ book.ckey }
+      </div>
+    </div>
+  </div>
+
+  <p v-if="book.content" v-cloak class="book-content" v-html="book.content.replace(`<font`, `<font class='book-content' color=`)">
+  </p>
+
+  <p v-else>
+    <i>Book is blank...</i>
+  </p>
+</div>
 
 {% endblock %}
