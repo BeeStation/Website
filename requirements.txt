@@ -3,7 +3,7 @@ pyyaml==5.4
 flask==1.1.1
 flask-cors==3.0.8
 
-elastic-apm[flask]==5.10.0
+elastic-apm[flask]==6.3.2
 
 requests==2.23.0
 
