@@ -14,7 +14,7 @@ def page_patreon_link():
 		return redirect("http://www.patreon.com/oauth2/authorize?response_type={}&client_id={}&redirect_uri={}&scope={}&state={}".format(
 			"code",
 			cfg.WEBSITE["patreon"]["client-id"],
-			"https://beestation13.com/patreonauth",
+			"https://api.beestation13.com/patreonauth",
 			"identity identity.memberships",
 			str(ckey)
 		))
