@@ -16,7 +16,7 @@
 	</div>
 
 	<div v-cloak v-for="server in servers">
-		<div v-if="server.id in server_stats && server.open">
+		<div v-if="server.id in server_stats && server.open && !('error' in server_stats[server.id])">
 			<hr>
 
 			<h1 style="text-align: center;">${ server.name }</h1>
