@@ -58,7 +58,7 @@
       {% if server["open"] %}
         <a class="link" href="/join/{{ server["id"] }}">{{ server["name"] }}</a>
       {% else %}
-        <s><a class="link" style="color: var(--bee-gray);">{{ server["name"] }}</a></s>
+        <a class="link" style="color: var(--bee-gray); text-decoration: line-through;">{{ server["name"] }}</a>
       {% endif %}
     {% endfor %}
   </div>
