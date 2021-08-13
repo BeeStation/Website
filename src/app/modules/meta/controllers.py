@@ -1,9 +1,7 @@
 from app import cfg
-from app import db
 from app import util
 
-from flask import Blueprint
-from flask import send_file
+from flask import Blueprint, send_file
 
 bp_meta = Blueprint('meta', __name__)
 

@@ -4,17 +4,59 @@
 
 {% block head %}
   <meta property="og:title" content="BeeStation - Library" />
+  <script src="/static/js/library.js" type="application/javascript"></script>
 {% endblock %}
 
 {% block content %}
   <div class="post-title"><a href="/library">Library</a></div><br><br>
 
-  <div style="text-align:center">{% if buttons[0] %}<a href="/library?page={{ page-1 }}" class="button">&lt;</a>{% endif %}{% if pages > 1 %}<span style="text-align: center;margin:0px 20px; font-size:18px;">page {{ page }} of {{ pages }}</span>{% endif %}{% if buttons[1] %}<a href="/library?page={{page+1}}" class="button">&gt;</a>{% endif %}</div>
-  {% for book in books %}
-    <div class="small-post" onclick="location.href = '/library/{{ book.id }}'">
-      <div class="small-post-title">{{ book.title }}</div><div class="small-post-author">{{ book.author }}</div>
-      <div class="small-post-stats"><div class="small-post-stat"><i class="fas fa-book"></i> {{ book.category }}</div><div class="small-post-stat"><i class="fas fa-user"></i> {{ book.ckey }}</div></div>
+  <div style="text-align:center;">
+    <a v-on:click="change_page(-1)" class="button"><i class="fas fa-arrow-left"></i></a>
+
+    <span style="text-align: center;margin:0px 20px; font-size:18px;">
+      <span v-cloak>
+        page ${ loaded_page || page } of ${ (pages !== null) ? pages : "..." }
+      </span>
+    </span>
+
+    <a v-on:click="change_page(1)" class="button"><i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <div v-cloak style="text-align:center;" class="ban-header">
+    <span v-if="!books.length && loaded">
+      No Books Found
+    </span>
+  
+    <div v-if="!loaded" class="progress-bar-indeterminate" style="width:50%; margin: 20px auto;">
+      <div class="progress-bar-indeterminate-value"></div>
     </div>
-  {% endfor %}
-  <div style="text-align:center">{% if buttons[0] %}<a href="/library?page={{ page-1 }}" class="button">&lt;</a>{% endif %}{% if pages > 1 %}<span style="text-align: center;margin:0px 20px; font-size:18px;">page {{ page }} of {{ pages }}</span>{% endif %}{% if buttons[1] %}<a href="/library?page={{page+1}}" class="button">&gt;</a>{% endif %}</div>
+  </div>
+
+  <div v-cloak v-if="books.length" v-for="book in books" class="small-post" v-on:click="open_book(book.id)">
+    <div class="small-post-title">
+      ${ book.title }
+    </div>
+
+    <div class="small-post-author">
+      ${ book.author }
+    </div>
+
+    <div class="small-post-stats">
+      <div class="small-post-stat"><i class="fas fa-book"></i> ${ book.category }</div>
+      <div class="small-post-stat"><i class="fas fa-user"></i> ${ book.ckey }</div>
+    </div>
+  </div>
+
+  <div v-if="books.length" style="text-align:center;">
+    <a v-on:click="change_page(-1)" class="button"><i class="fas fa-arrow-left"></i></a>
+  
+    <span style="text-align: center;margin:0px 20px; font-size:18px;">
+      <span v-cloak>
+        page ${ loaded_page || page } of ${ (pages !== null) ? pages : "..." }
+      </span>
+    </span>
+  
+    <a v-on:click="change_page(1)" class="button"><i class="fas fa-arrow-right"></i></a>
+  </div>
+
 {% endblock %}

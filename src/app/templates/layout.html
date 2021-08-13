@@ -11,14 +11,19 @@
 
     {% endblock %}
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="application/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js" type="application/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js" type="application/javascript"></script>
-    <script src="/static/js/util.js" type="application/javascript"></script>
+    <script src="/static/js/dist/jquery-3.3.1.min.js" type="application/javascript"></script>
+    <script src="/static/js/dist/date.min.js" type="application/javascript"></script>
+    <script src="/static/js/dist/vue2.min.js" type="application/javascript"></script>
+    <script src="https://kit.fontawesome.com/c04ca9b4bd.js" crossorigin="anonymous"></script>
+
+    <script>
+      window.api_base_url = '{{cfg.WEBSITE["api-base-url"]}}';
+
+      Vue.options.delimiters = ['${', '}'];
+    </script>
+
     <link   rel="stylesheet" href="/static/css/main.css">
-    <link   rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-default.min.css">
-    <link   rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sigmar+One">
-    <link   rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
     <title>BeeStation - {% block title %}{% endblock %}</title>
     <style>#ac-{% block active %}{% endblock %} {border-bottom: solid var(--bee-yellow) var(--bee-border-thick) !important;}</style>
   </head>
@@ -34,7 +39,7 @@
       <a href = "/stats"   id="ac-stats"   class="nav-item">Stats</a>
       <a href = "/uptime"  id="ac-uptime"  class="nav-item">Uptime</a>
       <a href = "/bans"    id="ac-bans"    class="nav-item">Bans</a>
-      <a href = "/map"     id="ac-maps"    class="nav-item">Maps</a>
+      <a href = "/maps"     id="ac-maps"    class="nav-item">Maps</a>
       <a href = "/library" id="ac-library" class="nav-item">Library</a>
     </div>
 

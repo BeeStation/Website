@@ -4,34 +4,66 @@
 
 {% block head %}
 	<meta property="og:title" content="BeeStation - Stats" />
+	<script src="/static/js/stats.js" type="application/javascript"></script>
 {% endblock %}
 
 {% block content %}
 
-	{% for server in cfg.SERVERS %}
-		{% if server["open"] %}
+	<div style="text-align:center;" class="ban-header">
+		<div v-if="(!servers.length) || (!Object.keys(server_stats).length)" class="progress-bar-indeterminate" style="width:50%; margin: 20px auto;">
+	  		<div class="progress-bar-indeterminate-value"></div>
+		</div>
+	</div>
+
+	<div v-cloak v-for="server in servers">
+		<div v-if="server.id in server_stats && server.open">
 			<hr>
 
-			<h1 style="text-align: center;">{{ server["name"] }}</h1>
+			<h1 style="text-align: center;">${ server.name }</h1>
 
 			<div class="stats">
-				<div class="stat"><div class="stat-header">Players</div><div id="stat-players-{{server.id}}" class="stat-value odometer">...</div></div>
-				<div class="stat"><div class="stat-header">Admins</div><div id="stat-admins-{{server.id}}" class="stat-value odometer">...</div></div>
-				<div class="stat"><div class="stat-header">Game Mode</div><div id="stat-mode-{{server.id}}" class="stat-value">...</div></div>
+				<div class="stat">
+					<div class="stat-header">Players</div>
+					<div class="stat-value">
+						${ server_stats[server.id].players }
+					</div>
+				</div>
+				<div class="stat">
+					<div class="stat-header">Admins</div>
+					<div class="stat-value">
+						${ server_stats[server.id].admins }
+					</div>
+				</div>
+				<div class="stat">
+					<div class="stat-header">Game Mode</div>
+					<div class="stat-value">
+						${ server_stats[server.id].mode || "None" }
+					</div>
+				</div>
 			</div>
+
 			<div class="stats">
-				<div class="stat"><div class="stat-header">Round ID</div><div id="stat-round-{{server.id}}" class="stat-value odometer">...</div></div>
-				<div class="stat"><div class="stat-header">Duration</div><div id="stat-duration-{{server.id}}" class="stat-value">...</div></div>
-				<div class="stat"><div class="stat-header">Map</div><div id="stat-map-{{server.id}}" class="stat-value">...</div></div>
+				<div class="stat">
+					<div class="stat-header">Round ID</div>
+					<div class="stat-value">
+						${ server_stats[server.id].round_id || "None" }
+					</div>
+				</div>
+				<div class="stat">
+					<div class="stat-header">Duration</div>
+					<div class="stat-value">
+						${ new Date(server_stats[server.id].round_duration * 1000).toISOString().substr(11, 8) }
+					</div>
+				</div>
+				<div class="stat">
+					<div class="stat-header">Map</div>
+					<div class="stat-value">
+						${ server_stats[server.id].map_name || "None" }
+					</div>
+				</div>
 			</div>
-		{% endif %}
-	{% endfor %}
+		</div>
+	</div>
 
-	<hr><br>
-
-	<script>
-	updateStats()
-	window.setInterval(updateStats, 10000)
-	</script>
-
+	<br>
 {% endblock %}

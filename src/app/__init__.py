@@ -1,10 +1,8 @@
 from app import cfg
 
 from flask import Flask
-from flask import session
 
 from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
 
 from os import environ
 
@@ -51,35 +49,10 @@ app.url_map.strict_slashes = False
 
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-
-app.config['SQLALCHEMY_BINDS'] = {
-	"game": "mysql://{username}:{password}@{host}:{port}/{db}".format(
-		username	= cfg.PRIVATE["database"]["game"]["user"],
-		password	= cfg.PRIVATE["database"]["game"]["pass"],
-		host		= cfg.PRIVATE["database"]["game"]["host"],
-		port		= cfg.PRIVATE["database"]["game"]["port"],
-		db			= cfg.PRIVATE["database"]["game"]["db"]
-	),
-	"site": "mysql://{username}:{password}@{host}:{port}/{db}".format(
-		username	= cfg.PRIVATE["database"]["site"]["user"],
-		password	= cfg.PRIVATE["database"]["site"]["pass"],
-		host		= cfg.PRIVATE["database"]["site"]["host"],
-		port		= cfg.PRIVATE["database"]["site"]["port"],
-		db			= cfg.PRIVATE["database"]["site"]["db"]
-	)	
-}
-
-sqlalchemy_ext = SQLAlchemy(app)
-
 @app.context_processor
 def context_processor():
-	from app import db
 	from app import util
-	return dict(cfg=cfg, db=db, util=util, session=dict(session))
-
-
-from app.modules.api.controllers import bp_api
-app.register_blueprint(bp_api)
+	return dict(cfg=cfg, util=util)
 
 from app.modules.bans.controllers import bp_bans
 app.register_blueprint(bp_bans)
@@ -87,14 +60,8 @@ app.register_blueprint(bp_bans)
 from app.modules.index.controllers import bp_index
 app.register_blueprint(bp_index)
 
-from app.modules.leaderboard.controllers import bp_leaderboard
-app.register_blueprint(bp_leaderboard)
-
 from app.modules.library.controllers import bp_library
 app.register_blueprint(bp_library)
-
-from app.modules.maps.controllers import bp_maps
-app.register_blueprint(bp_maps)
 
 from app.modules.meta.controllers import bp_meta
 app.register_blueprint(bp_meta)

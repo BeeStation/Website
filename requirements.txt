@@ -1,18 +1,10 @@
 pyyaml==5.4
-cachetools==4.0.0
 
 flask==1.1.1
 flask-cors==3.0.9
-flask-sqlalchemy==2.5.1
 
 elastic-apm[flask]==6.3.2
 
 requests==2.23.0
 
-mysqlclient==1.4.6
-
 uWSGI==2.0.19.1
-
-# Patreon doesn't actually have the correct version tagged in their repo and they didn't make it available via pypip.
-# Installing via this specific commit instead of egging master is preferable to prevent sudden breaks
-git+git://github.com/Patreon/patreon-python.git@80c83f018d6bd93b83c188baff727c5e77e01ce6

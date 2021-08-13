@@ -1,10 +1,7 @@
 from app import cfg
-from app import db
 from app import util
 
-from flask import Blueprint
-from flask import redirect
-from flask import request
+from flask import Blueprint, redirect, request
 
 bp_redirects = Blueprint('redirects', __name__)
 
@@ -31,6 +28,12 @@ def page_rules():
 @bp_redirects.route("/forum")
 def page_forum():
 	return redirect("https://forums.beestation13.com")
+
+
+@bp_redirects.route("/maps")
+def page_map_viewer():
+	return redirect("https://affectedarc07.github.io/SS13WebMap/")
+
 
 @bp_redirects.route("/uptime")
 def page_uptime():
