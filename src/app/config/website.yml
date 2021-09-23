@@ -2,7 +2,7 @@ static-url-path: "/static"
 
 description: "BeeStation is a newbie friendly Space Station 13 server. The server was created in march 2018. We like to put a fun touch to the rounds to make a better experience."
 
-api-base-url: "http://192.168.1.110:8081/"
+api-base-url: "https://api.beestation13.com/"
 
 links:
   discord: "https://discord.gg/Y7RTtkK"
