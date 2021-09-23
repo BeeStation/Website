@@ -1,10 +1,10 @@
-from app import cfg
-from app import util
-
 from flask import Blueprint, render_template
 
-bp_index = Blueprint('index', __name__)
+from app import cfg, util
+
+bp_index = Blueprint("index", __name__)
+
 
 @bp_index.route("/")
 def page_index():
-	return render_template("home.html")
+    return render_template("home.html")
