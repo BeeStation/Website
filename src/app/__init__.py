@@ -21,7 +21,7 @@ if environ.get("APM") == "True":
     apm_debug = False
     apm_token = ""
 
-    # Check for APM envrion variables
+    # Check for APM environ variables
     if "APM_URL" in environ:
         apm_url = environ["APM_URL"]
     if "APM_DEBUG" in environ:
