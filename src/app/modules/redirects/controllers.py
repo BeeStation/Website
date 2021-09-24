@@ -13,9 +13,7 @@ def page_join(id):
 
 @bp_redirects.route("/rules")
 def page_rules():
-    server_id = request.args.get(
-        "server", type=str, default=util.get_server_default()["id"]
-    )
+    server_id = request.args.get("server", type=str, default=util.get_server_default()["id"])
     server = util.get_server(server_id)
 
     if not server:
