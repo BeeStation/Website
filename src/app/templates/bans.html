@@ -47,7 +47,7 @@
   <div style="width:100%;">
     <div style="width:295px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Ban Date:</b> ${ render_dtstring(ban.bantime) }</div>
     <div style="width:315px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Expire Date:</b> ${ ban.expiration_time ? render_dtstring(ban.expiration_time)  : "Never" }</div>
-    <div style="width:150px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Round:</b> ${ ban.round_id || "Error!" }</div>
+    <div style="width:150px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Round:</b> ${ ban.round_id.toLocaleString() || "Error!" }</div>
     <div style="width:175px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Server:</b> ${ ban.global_ban ? "All" : ban.server_name }</div>
     <div style="width:250px;display:inline-block;" class="ban-reason"><b class="ban-reason-title">Admin:</b> ${ ban.a_ckey }</div>
   </div>

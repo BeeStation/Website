@@ -21,21 +21,21 @@
       <div class="stat">
         <div class="stat-header">Total Players</div>
         <div v-cloak id="stat-total-players" class="stat-value">
-          ${ server_totals.total_players }
+          ${ server_totals.total_players.toLocaleString() }
         </div>
       </div>
 
       <div class="stat">
         <div class="stat-header">Total Rounds</div>
         <div v-cloak id="stat-total-rounds" class="stat-value">
-          ${ server_totals.total_rounds }
+          ${ server_totals.total_rounds.toLocaleString() }
         </div>
       </div>
 
       <div class="stat">
         <div class="stat-header">Total Connections</div>
         <div v-cloak id="stat-total-connections" class="stat-value">
-          ${ server_totals.total_connections }
+          ${ server_totals.total_connections.toLocaleString() }
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
     <div class="progress-bg">
       <div class="progress-bar" :style="{width: budget.percent+'%'}">
         <h3 v-cloak v-if="'income' in budget" class="progress-raised">
-          ${ "$" + budget.income + " / $" + budget.goal }
+          ${ "$" + budget.income.toLocaleString() + " / $" + budget.goal.toLocaleString() }
         </h3>
       </div>
     </div>

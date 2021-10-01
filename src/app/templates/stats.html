@@ -25,13 +25,13 @@
 				<div class="stat">
 					<div class="stat-header">Players</div>
 					<div class="stat-value">
-						${ server_stats[server.id].players }
+						${ server_stats[server.id].players.toLocaleString() }
 					</div>
 				</div>
 				<div class="stat">
 					<div class="stat-header">Admins</div>
 					<div class="stat-value">
-						${ server_stats[server.id].admins }
+						${ server_stats[server.id].admins.toLocaleString() }
 					</div>
 				</div>
 				<div class="stat">
@@ -46,7 +46,7 @@
 				<div class="stat">
 					<div class="stat-header">Round ID</div>
 					<div class="stat-value">
-						${ server_stats[server.id].round_id || "None" }
+						${ server_stats[server.id].round_id ? server_stats[server.id].round_id.toLocaleString() : "None" }
 					</div>
 				</div>
 				<div class="stat">
