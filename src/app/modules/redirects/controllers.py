@@ -1,40 +1,37 @@
-from app import cfg
+from flask import Blueprint, abort, redirect, request
+
 from app import util
 
-from flask import Blueprint, redirect, request
+bp_redirects = Blueprint("redirects", __name__)
 
-bp_redirects = Blueprint('redirects', __name__)
 
 @bp_redirects.route("/join/<string:id>")
 def page_join(id):
-	try:
-		server = util.get_server(id)
-		return redirect("byond://{}:{}".format(server["host"],server["port"]))
-	except Exception as E:
-		pass
+    server = util.get_server(id)
+    return redirect("byond://{}:{}".format(server["host"], server["port"]))
 
 
 @bp_redirects.route("/rules")
 def page_rules():
-	server_id = request.args.get('server', type=str, default=util.get_server_default()["id"])
-	server = util.get_server(server_id)
+    server_id = request.args.get("server", type=str, default=util.get_server_default()["id"])
+    server = util.get_server(server_id)
 
-	if not server:
-		return abort(404)
+    if not server:
+        return abort(404)
 
-	return redirect(server["rules_url"])
+    return redirect(server["rules_url"])
 
 
 @bp_redirects.route("/forum")
 def page_forum():
-	return redirect("https://forums.beestation13.com")
+    return redirect("https://forums.beestation13.com")
 
 
 @bp_redirects.route("/maps")
 def page_map_viewer():
-	return redirect("https://affectedarc07.github.io/SS13WebMap/")
+    return redirect("https://affectedarc07.github.io/SS13WebMap/")
 
 
 @bp_redirects.route("/uptime")
 def page_uptime():
-	return redirect("https://status.beestation13.com")
+    return redirect("https://status.beestation13.com")
