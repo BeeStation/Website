@@ -4,12 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-elastic-apm = {version = "==6.3.2", extras = ["flask"]}
-requests = "==2.23.0"
-PyYAML = "==5.4"
-Flask = "==1.1.1"
-Flask-Cors = "==3.0.9"
-uWSGI = "==2.0.20"
+elastic-apm = {version = "~=6.7.2", extras = ["flask"]}
+requests = "~=2.27.1"
+PyYAML = "~=5.4"
+Flask = "~=1.1.1"
+Flask-Cors = "~=3.0.10"
+uWSGI = "~=2.0.20"
 
 [dev-packages]
 
