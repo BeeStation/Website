@@ -10,7 +10,7 @@ PyYAML = "~=5.4"
 Flask = "~=1.1.1"
 Flask-Cors = "~=3.0.10"
 uWSGI = "~=2.0.20"
-werkzeug = "~=2.0.2"
+werkzeug = "~=2.2.3"
 
 [dev-packages]
 
