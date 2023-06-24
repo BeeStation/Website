@@ -1,6 +1,8 @@
-from flask import Blueprint, abort, redirect, request
-
 from beesite import util
+from flask import abort
+from flask import Blueprint
+from flask import redirect
+from flask import request
 
 bp_redirects = Blueprint("redirects", __name__)
 

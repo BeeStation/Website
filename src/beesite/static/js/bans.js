@@ -34,7 +34,7 @@ window.addEventListener("load", function () {
 					this.bans = data.data;
 					this.pages = data.pages;
 					this.loaded_page = data.page;
-			
+
 					this.loaded = true;
 				}.bind(this))
 			},

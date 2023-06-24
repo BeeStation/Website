@@ -26,7 +26,7 @@
     <span v-if="!books.length && loaded">
       No Books Found
     </span>
-  
+
     <div v-if="!loaded" class="progress-bar-indeterminate" style="width:50%; margin: 20px auto;">
       <div class="progress-bar-indeterminate-value"></div>
     </div>
@@ -49,13 +49,13 @@
 
   <div v-if="books.length" style="text-align:center;">
     <a v-on:click="change_page(-1)" class="button"><i class="fas fa-arrow-left"></i></a>
-  
+
     <span style="text-align: center;margin:0px 20px; font-size:18px;">
       <span v-cloak>
         page ${ loaded_page || page } of ${ (pages !== null) ? pages : "..." }
       </span>
     </span>
-  
+
     <a v-on:click="change_page(1)" class="button"><i class="fas fa-arrow-right"></i></a>
   </div>
 

@@ -26,6 +26,6 @@ For direct development hosting, simply run `src/wsgi.py`
 
 #### Production
 
-For production hosting, use `uwsgi` to serve `server-conf/beesite_uwsgi.ini` to a socket file `beesite_uwsgi.sock`. 
+For production hosting, use `uwsgi` to serve `server-conf/beesite_uwsgi.ini` to a socket file `beesite_uwsgi.sock`.
 
 You will need to either use nginx (recommended) or apache to read and serve from the uwsgi socket.

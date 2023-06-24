@@ -34,7 +34,7 @@ line-length = 120
 
 [tool.codespell]
 count = ""
-skip = ".git,.venv,*.lock,.mypy_cache"
+skip = ".git,.venv,*.lock,.mypy_cache,*.js"
 builtin = "clear,rare,code,en-GB_to_en-US"
 ignore-words-list = "od,ro"
 quiet = 3

@@ -8,7 +8,7 @@
 	<loc>https://beestation13.com/</loc>
 	<lastmod>2020-03-30T02:29:08+00:00</lastmod>
 	<priority>1.00</priority>
-</url> 
+</url>
 <url>
 	<loc>https://beestation13.com/rules</loc>
 	<lastmod>2020-03-30T02:29:08+00:00</lastmod>
@@ -20,7 +20,7 @@
 	<priority>0.80</priority>
 </url>
 <url>
-	<loc>https://beestation13.com/bans</loc> 
+	<loc>https://beestation13.com/bans</loc>
 	<lastmod>2020-03-30T02:29:08+00:00</lastmod>
 	<priority>0.80</priority>
 </url>
@@ -30,12 +30,12 @@
 	<priority>0.60</priority>
 </url>
 <url>
-	<loc>https://beestation13.com/library</loc> 
+	<loc>https://beestation13.com/library</loc>
 	<lastmod>2020-03-30T02:29:08+00:00</lastmod>
 	<priority>0.50</priority>
 </url>
 <url>
-	<loc>https://beestation13.com/rules?server=rp</loc> <lastmod>2020-03-30T02:29:08+00:00</lastmod> <priority>0.64</priority> </url> <url> <loc>https://beestation13.com/bans</loc> 
+	<loc>https://beestation13.com/rules?server=rp</loc> <lastmod>2020-03-30T02:29:08+00:00</lastmod> <priority>0.64</priority> </url> <url> <loc>https://beestation13.com/bans</loc>
  	<lastmod>2020-03-30T02:29:08+00:00</lastmod>
 	<priority>0.70</priority>
 </url>

@@ -1,6 +1,6 @@
 version: '3'
 
-services: 
+services:
   web:
     container_name: beestation_website_app
     image: beestation/beesite

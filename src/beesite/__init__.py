@@ -1,9 +1,8 @@
 from os import environ
 
+from beesite import cfg
 from flask import Flask
 from flask_cors import CORS
-
-from beesite import cfg
 
 app = Flask(__name__, static_url_path=cfg.WEBSITE["static-url-path"])
 
@@ -25,7 +24,7 @@ if environ.get("APM") == "True":
     if "APM_URL" in environ:
         apm_url = environ["APM_URL"]
     if "APM_DEBUG" in environ:
-        apm_debug = environ["APM_DEBUG"]
+        apm_debug = bool(environ["APM_DEBUG"])
     if "APM_TOKEN" in environ:
         apm_token = environ["APM_TOKEN"]
 

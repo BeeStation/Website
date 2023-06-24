@@ -1,11 +1,11 @@
 version: '3'
 
-services: 
+services:
   web:
     build: .
     ports:
       - "8080:8080"
-    volumes: 
+    volumes:
       - ./src:/beesite:ro
     environment:
       DEBUG: 'True'

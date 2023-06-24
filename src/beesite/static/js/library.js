@@ -26,7 +26,7 @@ window.addEventListener("load", function () {
 					this.books = data.data;
 					this.pages = data.pages;
 					this.loaded_page = data.page;
-			
+
 					this.loaded = true;
 				}.bind(this))
 			},
@@ -44,7 +44,7 @@ window.addEventListener("load", function () {
 
 			change_page(amount) {
 				if(!this.loaded){return;}
-				
+
 				this.page += amount;
 				this.page = Math.min(Math.max(this.page, 1), this.pages);
 				this.update_url();

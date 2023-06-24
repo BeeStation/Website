@@ -1,6 +1,5 @@
-from flask import Blueprint, render_template
-
-from beesite import cfg, util
+from flask import Blueprint
+from flask import render_template
 
 bp_bans = Blueprint("bans", __name__)
 
