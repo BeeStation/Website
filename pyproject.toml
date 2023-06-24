@@ -31,3 +31,24 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 120
+
+[tool.codespell]
+count = ""
+skip = ".git,.venv,*.lock,.mypy_cache"
+builtin = "clear,rare,code,en-GB_to_en-US"
+ignore-words-list = "od,ro"
+quiet = 3
+
+[tool.mypy]
+mypy_path = "bapi"
+check_untyped_defs = true
+disallow_any_generics = true
+ignore_missing_imports = true
+no_implicit_optional = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+no_implicit_reexport = true
