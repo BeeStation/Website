@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./config/site-settings:/beesite/app/config:ro
+      - ./config/site-settings:/app/beesite/config:ro
     environment:
       APM: 'False' #Set to True to enable APM logging
       APM_URL: 'http://0.0.0.0:8200'
