@@ -1,5 +1,11 @@
 # BeeStation Website
 
+## Contributing
+
+Install [poetry](https://python-poetry.org/) and run `poetry install` within the base directory. This will create a new virtual environment and install all the needed dependencies.
+
+Once the environment has been setup, run `poetry run pre-commit install` to add the git hooks.
+
 ## Hosting
 
 In order to properly host, you must fill out `src/app/config/private.yml`
