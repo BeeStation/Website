@@ -1,12 +1,12 @@
 version: '3'
 
-services: 
+services:
   web:
     build: .
     ports:
       - "8080:8080"
-    volumes: 
-      - ./src:/beesite:ro
+    volumes:
+      - ./src:/app:ro
     environment:
       DEBUG: 'True'
       APM: 'False' #Set to True to enable APM logging
