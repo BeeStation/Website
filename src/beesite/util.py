@@ -1,6 +1,6 @@
 import re
 
-from app import cfg
+from beesite import cfg
 
 
 def to_ckey(byondkey):

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from app import cfg, util
+from beesite import cfg, util
 
 bp_library = Blueprint("library", __name__)
 

@@ -1,6 +1,6 @@
 from flask import Blueprint, redirect, render_template, request
 
-from app import cfg, util
+from beesite import cfg, util
 
 bp_patreon = Blueprint("patreon", __name__)
 

@@ -3,7 +3,7 @@ from os import environ
 from flask import Flask
 from flask_cors import CORS
 
-from app import cfg
+from beesite import cfg
 
 app = Flask(__name__, static_url_path=cfg.WEBSITE["static-url-path"])
 
@@ -49,35 +49,35 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.context_processor
 def context_processor():
-    from app import util
+    from beesite import util
 
     return dict(cfg=cfg, util=util)
 
 
-from app.modules.bans.controllers import bp_bans
+from beesite.modules.bans.controllers import bp_bans
 
 app.register_blueprint(bp_bans)
 
-from app.modules.index.controllers import bp_index
+from beesite.modules.index.controllers import bp_index
 
 app.register_blueprint(bp_index)
 
-from app.modules.library.controllers import bp_library
+from beesite.modules.library.controllers import bp_library
 
 app.register_blueprint(bp_library)
 
-from app.modules.meta.controllers import bp_meta
+from beesite.modules.meta.controllers import bp_meta
 
 app.register_blueprint(bp_meta)
 
-from app.modules.patreon.controllers import bp_patreon
+from beesite.modules.patreon.controllers import bp_patreon
 
 app.register_blueprint(bp_patreon)
 
-from app.modules.redirects.controllers import bp_redirects
+from beesite.modules.redirects.controllers import bp_redirects
 
 app.register_blueprint(bp_redirects)
 
-from app.modules.stats.controllers import bp_stats
+from beesite.modules.stats.controllers import bp_stats
 
 app.register_blueprint(bp_stats)

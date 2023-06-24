@@ -1,6 +1,6 @@
 from flask import Blueprint, send_file
 
-from app import cfg, util
+from beesite import cfg, util
 
 bp_meta = Blueprint("meta", __name__)
 
