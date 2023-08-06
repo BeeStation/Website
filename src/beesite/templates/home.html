@@ -55,11 +55,13 @@
   <div class="links">
     <div class="links-header">Servers</div>
     {% for server in cfg.SERVERS %}
-      {% if server["open"] %}
-        <a class="link" href="/join/{{ server["id"] }}">{{ server["name"] }}</a>
-      {% else %}
-        <a class="link" style="color: var(--bee-gray); text-decoration: line-through;">{{ server["name"] }}</a>
-      {% endif %}
+        {% if not server["hidden"] %}
+            {% if server["open"] %}
+                <a class="link" href="/join/{{ server["id"] }}">{{ server["name"] }}</a>
+            {% else %}
+                <a class="link" style="color: var(--bee-gray); text-decoration: line-through;">{{ server["name"] }}</a>
+            {% endif %}
+        {% endif %}
     {% endfor %}
   </div>
 
