@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "beesite"
-version = "2.0.0"
+version = "2.1.0"
 description = "BeeStation13 Website"
 authors = ["Qwertyquerty", "Crossedfall"]
 license = "APACHE"
