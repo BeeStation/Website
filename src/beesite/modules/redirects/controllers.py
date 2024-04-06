@@ -31,7 +31,7 @@ def page_forum():
 
 @bp_redirects.route("/maps")
 def page_map_viewer():
-    return redirect("https://affectedarc07.github.io/SS13WebMap/")
+    return redirect("https://webmap.affectedarc07.co.uk/")
 
 
 @bp_redirects.route("/uptime")
