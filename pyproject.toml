@@ -14,7 +14,7 @@ elastic-apm = {version = "^6.16.2", extras = ["flask"]}
 requests = "^2.32.2"
 PyYAML = "^6.0"
 Flask = "^2.3.2"
-Flask-Cors = "^3.0.10"
+Flask-Cors = "^4.0.2"
 uWSGI = "^2.0.21"
 werkzeug = "^3.0.3"
 
