@@ -1,0 +1,17 @@
+static-url-path: "/static"
+
+description: "A World of Darkness SS13 server."
+
+api-base-url: "https://api.wod13.org/"
+
+links:
+  discord: "https://discord.gg/Vb8kubKWgK"
+  github: "https://github.com/WorldOfDarknessXIII/WOD13"
+  subreddit: "https://www.reddit.com/r/SS13"
+  patreon: "https://www.patreon.com/WorldofDarknessXIII"
+  ss13-website: "https://spacestation13.com/"
+  wiki: "https://wiki.wod13.org"
+  starter-guide: "https://wiki.wod13.org/wiki/New_Players"
+
+patreon:
+  client-id: "test"

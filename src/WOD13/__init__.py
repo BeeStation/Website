@@ -1,6 +1,6 @@
 from os import environ
 
-from beesite import cfg
+from WOD13 import cfg
 from flask import Flask
 from flask_cors import CORS
 
@@ -31,7 +31,7 @@ if environ.get("APM") == "True":
     app.config["ELASTIC_APM"] = {
         # Set required service name. Allowed characters:
         # a-z, A-Z, 0-9, -, _, and space
-        "SERVICE_NAME": "beesite",
+        "SERVICE_NAME": "WOD13",
         # Use if APM Server requires a token
         "SECRET_TOKEN": apm_token,
         # Set custom APM Server URL (default: http://0.0.0.0:8200)
@@ -48,35 +48,35 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.context_processor
 def context_processor():
-    from beesite import util
+    from WOD13 import util
 
     return dict(cfg=cfg, util=util)
 
 
-from beesite.modules.bans.controllers import bp_bans
+from WOD13.modules.bans.controllers import bp_bans
 
 app.register_blueprint(bp_bans)
 
-from beesite.modules.index.controllers import bp_index
+from WOD13.modules.index.controllers import bp_index
 
 app.register_blueprint(bp_index)
 
-from beesite.modules.library.controllers import bp_library
+from WOD13.modules.library.controllers import bp_library
 
 app.register_blueprint(bp_library)
 
-from beesite.modules.meta.controllers import bp_meta
+from WOD13.modules.meta.controllers import bp_meta
 
 app.register_blueprint(bp_meta)
 
-from beesite.modules.patreon.controllers import bp_patreon
+from WOD13.modules.patreon.controllers import bp_patreon
 
 app.register_blueprint(bp_patreon)
 
-from beesite.modules.redirects.controllers import bp_redirects
+from WOD13.modules.redirects.controllers import bp_redirects
 
 app.register_blueprint(bp_redirects)
 
-from beesite.modules.stats.controllers import bp_stats
+from WOD13.modules.stats.controllers import bp_stats
 
 app.register_blueprint(bp_stats)

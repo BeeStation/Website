@@ -1,4 +1,4 @@
-from beesite import util
+from WOD13 import util
 from flask import abort
 from flask import Blueprint
 from flask import redirect
@@ -26,7 +26,7 @@ def page_rules():
 
 @bp_redirects.route("/forum")
 def page_forum():
-    return redirect("https://forums.beestation13.com")
+    return redirect("https://forums.WOD13.com")
 
 
 @bp_redirects.route("/maps")
@@ -36,4 +36,4 @@ def page_map_viewer():
 
 @bp_redirects.route("/uptime")
 def page_uptime():
-    return redirect("https://status.beestation13.com")
+    return redirect("https://status.WOD13.com")

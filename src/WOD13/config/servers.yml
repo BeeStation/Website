@@ -1,0 +1,10 @@
+- id: 'server'
+  aliases:
+    - 'server'
+  name: 'WOD 13 Server'
+  nickname: 'Server'
+  host: 'server.wod13.org'
+  port: 7878
+  open: true
+  color: '0, 0, 150'
+  rules_url: 'https://wiki.wod13.org/wiki/Rules'

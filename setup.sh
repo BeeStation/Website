@@ -7,7 +7,7 @@ done
 
 # Download the latest compose file if needed
 if [ ! -f "./docker-compose.prod.yml" ]; then
-    wget -q -O docker-compose.yml "https://raw.githubusercontent.com/BeeStation/Website/master/docker-compose.prod.yml"
+    wget -q -O docker-compose.yml "https://raw.githubusercontent.com/WorldOfDarknessXIII/Website/master/docker-compose.prod.yml"
 fi
 
 # Check if config exists. If it doesn't, checkout the config from upstream
@@ -21,14 +21,14 @@ else
 
     cd $TMPDIR
     git init -q
-    git remote add origin https://github.com/BeeStation/Website
+    git remote add origin https://github.com/WorldOfDarknessXIII/Website
     git fetch --depth=5 -q
     git config core.sparseCheckout true
-    echo "src/beesite/config" >> .git/info/sparse-checkout
+    echo "src/WOD13/config" >> .git/info/sparse-checkout
     git pull -q origin master
 
     mkdir ./config
-    mv ./src/beesite/config/ ./config/site-settings
+    mv ./src/WOD13/config/ ./config/site-settings
     mv ./config $ACTIVE_DIR/config
     cd $ACTIVE_DIR
     rm -rf $TMPDIR

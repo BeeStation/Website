@@ -2,12 +2,12 @@ version: '3'
 
 services:
   web:
-    container_name: beestation_website_app
-    image: beestation/beesite
+    container_name: WOD13_website_app
+    image: WOD13/WOD13
     ports:
       - "8080:8080"
     volumes:
-      - ./config/site-settings:/app/beesite/config:ro
+      - ./config/site-settings:/app/WOD13/config:ro
     environment:
       APM: 'False' #Set to True to enable APM logging
       APM_URL: 'http://0.0.0.0:8200'

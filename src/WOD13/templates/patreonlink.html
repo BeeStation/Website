@@ -2,7 +2,7 @@
 {% block title %}Patreon Link{% endblock %}
 
 {% block head %}
-	<meta property="og:title" content="BeeStation - Patreon Link" />
+	<meta property="og:title" content="WOD13 - Patreon Link" />
 {% endblock %}
 
 {% block content %}
@@ -15,7 +15,7 @@
 		{% if request.args.get("error") %}
 			<h2 style="color: #bb1111;">
 			{% if request.args.get("error") == "invalidckey" %}
-				That ckey has never connected to BeeStation!
+				That ckey has never connected to WOD13!
 			{% else %}
 				Unknown Error! Report to qwerty.
 			{% endif %}

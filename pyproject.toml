@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "beesite"
+name = "WOD13"
 version = "2.1.0"
-description = "BeeStation13 Website"
-authors = ["Qwertyquerty", "Crossedfall"]
+description = "WOD13 Website"
+authors = ["Qwertyquerty", "Crossedfall", "XeonMations"]
 license = "APACHE"
 readme = "README.md"
-repository = "https://github.com/BeeStation/Website"
-packages = [{include = "beesite", from = "src"}]
+repository = "https://github.com/WorldOfDarknessXIII/Website"
+packages = [{include = "WOD13", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"

@@ -22,7 +22,7 @@ This will build the docker image and start hosting on port `8080` by default. Us
 
 #### Production
 
-Create a new directory on your target system and run `curl -L deploy.beestation13.buzz/website | bash` within that directory. Doing so will download the necessary files and prepare the docker environment.
+Create a new directory on your target system and run `curl -L deploy.WOD13.buzz/website | bash` within that directory. Doing so will download the necessary files and prepare the docker environment.
 
 See `setup.sh` for the actual installation steps.
 
@@ -34,6 +34,6 @@ For direct development hosting, simply run `src/wsgi.py`
 
 #### Production
 
-For production hosting, use `uwsgi` to serve `server-conf/beesite_uwsgi.ini` to a socket file `beesite_uwsgi.sock`.
+For production hosting, use `uwsgi` to serve `server-conf/WOD13_uwsgi.ini` to a socket file `WOD13_uwsgi.sock`.
 
 You will need to either use nginx (recommended) or apache to read and serve from the uwsgi socket.

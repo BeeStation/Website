@@ -22,12 +22,12 @@ RUN apk add --no-cache mariadb-dev \
 RUN poetry install --without=dev --no-root --no-interaction --no-ansi \
     && apk del --purge build-dependencies
 
-COPY server-conf/beesite_uwsgi.ini /etc/uwsgi/uwsgi.ini
+COPY server-conf/WOD13_uwsgi.ini /etc/uwsgi/uwsgi.ini
 
 WORKDIR /app
 COPY /src /app
 
-RUN gzip -k --best --force /app/beesite/static/ \
+RUN gzip -k --best --force /app/WOD13/static/ \
 	&& adduser -u 82 -D -S -G www-data www-data \
     && chown -R www-data:www-data /app
 
