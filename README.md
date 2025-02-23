@@ -1,4 +1,6 @@
-# BeeStation Website
+# WOD13 Website
+
+## Many thanks to CrossedFall for the original source of this.
 
 ## Contributing
 
