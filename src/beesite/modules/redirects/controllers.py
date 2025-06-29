@@ -2,8 +2,8 @@ from beesite import util
 from flask import abort
 from flask import Blueprint
 from flask import redirect
-from flask import request
 from flask import render_template
+from flask import request
 
 bp_redirects = Blueprint("redirects", __name__)
 
@@ -13,7 +13,12 @@ def page_join(id):
     server = util.get_server(id)
     if server is None:
         return abort(404)
-    return render_template("join.html", server_name=server["name"], server_nickname=server["nickname"], server_url="byond://{}:{}".format(server["host"], server["port"]))
+    return render_template(
+        "join.html",
+        server_name=server["name"],
+        server_nickname=server["nickname"],
+        server_url="byond://{}:{}".format(server["host"], server["port"]),
+    )
 
 
 @bp_redirects.route("/rules")
