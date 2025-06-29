@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta property="og:type"  content="website" />
+    <meta property="og:image" content="http://beestation13.com/static/img/logo.png" />
+    <meta property="og:url" content="{{ request.url }}" />
+    <meta name="description"  content="{{ cfg.WEBSITE["description"] }}"/>
+    <meta property="og:description" content="{{ cfg.WEBSITE["description"] }}" />
+
+    {% block head %}
+
+    {% endblock %}
+
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    <title>BeeStation - {% block title %}{% endblock %}</title>
+  </head>
+
+
+  <body>
+  <div id="container">
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+  </body>
+</html>
