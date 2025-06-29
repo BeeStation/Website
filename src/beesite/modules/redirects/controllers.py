@@ -3,6 +3,7 @@ from flask import abort
 from flask import Blueprint
 from flask import redirect
 from flask import request
+from flask import render_template
 
 bp_redirects = Blueprint("redirects", __name__)
 
@@ -10,7 +11,9 @@ bp_redirects = Blueprint("redirects", __name__)
 @bp_redirects.route("/join/<string:id>")
 def page_join(id):
     server = util.get_server(id)
-    return redirect("byond://{}:{}".format(server["host"], server["port"]))
+    if server is None:
+        return abort(404)
+    return render_template("join.html", server_name=server["name"], server_nickname=server["nickname"], server_url="byond://{}:{}".format(server["host"], server["port"]))
 
 
 @bp_redirects.route("/rules")
