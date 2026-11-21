@@ -200,12 +200,13 @@ footer {
 
 
 .progress-bg {
-	height: 40px;
+  position: relative;
+  height: 40px;
   text-align: center;
   background-color: var(--bee-black);
   width: 80%;
   margin: auto auto;
-	box-shadow: 0 0 var(--bee-shadow-thick) var(--bee-shadow-thick) var(--bee-dark-gray-4);
+  box-shadow: 0 0 var(--bee-shadow-thick) var(--bee-shadow-thick) var(--bee-dark-gray-4);
 }
 
 .progress-bar {
@@ -218,19 +219,21 @@ footer {
 }
 
 .progress-bg .progress-raised {
-	font-family: Arial,sans-serif;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
   font-size: 1.5em;
   font-weight: 600;
-	line-height: 40px;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	display: inline;
+  line-height: normal;
   color: var(--bee-white);
-	margin: 14px 25px 0 50px;
-	padding: 0 40px 0 0;
   animation: fadein 4s;
   white-space: nowrap;
+  pointer-events: none;
 }
 
 @keyframes fadein {
